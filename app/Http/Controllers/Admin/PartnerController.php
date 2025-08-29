@@ -98,5 +98,5 @@ class PartnerController extends Controller
                         ->with('success', 'Partenaire supprimé avec succès.');
     }
 
-    
+
 }

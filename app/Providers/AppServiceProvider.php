@@ -40,14 +40,15 @@ class AppServiceProvider extends ServiceProvider
         // Partager les informations de contact
         View::composer(['frontend.layouts.app', 'frontend.partials.footer'], function ($view) {
             $contactInfo = [
-                'phones' => ['+237 696 740 438', '+237 698 288 072'],
-                'office' => '+237 222 271 205',
+                'phones' => ['+237 694813985'],
+                'office' => '+237 682487583',
                 'email' => 'contact@act4communities.org',
                 'address' => 'Garoua / Marouaré, Cameroun',
                 'social' => [
-                    'facebook' => '#',
-                    'linkedin' => '#',
-                    'twitter' => '#',
+                    'facebook' => 'https://web.facebook.com/act4communities',
+                    'linkedin' => 'https://www.linkedin.com/in/action-pour-le-d%C3%A9veloppement-communautaire-295545210/',
+                    'twitter' => 'https://x.com/ActionLe654',
+                    'instagral'=>'https://www.instagram.com/actforcommunities/',
                 ]
             ];
 

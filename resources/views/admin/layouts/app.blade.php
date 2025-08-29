@@ -351,6 +351,20 @@
                             </a>
                         </li>
 
+                                                 <!-- NOUVEAU : Section Ressources -->
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.resources*') ? 'active' : '' }}" href="{{ route('admin.resources.index') }}">
+                                <i class="fas fa-folder-open me-2"></i>Ressources
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.resource-categories*') ? 'active' : '' }}" href="{{ route('admin.resource-categories.index') }}">
+                                <i class="fas fa-tags me-2"></i>Catégories Ressources
+                            </a>
+                        </li>
+                        <!-- FIN NOUVEAU -->
+
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('admin.contacts*') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">
                                 <i class="fas fa-envelope me-2"></i>Contacts

@@ -2,7 +2,7 @@
 @extends('frontend.layouts.app')
 
 @section('title', 'Accueil')
-@section('description', 'Action pour le Développement Communautaire - ONG camerounaise œuvrant pour le développement durable et les droits des communautés')
+@section('description', 'Action pour le Développement Communautaire - OSC camerounaise œuvrant pour le développement durable et les droits des communautés')
 
 @section('content')
 
@@ -24,7 +24,7 @@
                 <div class="container-fluid px-5 h-100">
                     <div class="row align-items-center h-100">
                         <div class=" mx-auto text-center text-white">
-                            <h1 class="display-3 fw-bold mb-4 hero-title" data-aos="fade-up" data-aos-delay="100">
+                            <h1 class="display-3 fw-bold mb-4 pt-4 hero-title" data-aos="fade-up" data-aos-delay="100">
                                 {{ __('Un développement centré sur la personne humaine') }}
                             </h1>
                             <p class="lead mb-5 fs-4 hero-description" data-aos="fade-up" data-aos-delay="200">
@@ -49,7 +49,7 @@
                 <div class="container-fluid px-5 h-100">
                     <div class="row align-items-center h-100">
                         <div class=" mx-auto text-center text-white">
-                            <h1 class="display-3 fw-bold mb-4 hero-title">
+                            <h1 class="display-3 fw-bold mb-4 hero-title pt-4">
                                 {{ __('Autonomisation des communautés locales') }}
                             </h1>
                             <p class="lead mb-5 fs-4 hero-description">
@@ -74,7 +74,7 @@
                 <div class="container-fluid px-5 h-100">
                     <div class="row align-items-center h-100">
                         <div class="mx-auto text-center text-white">
-                            <h1 class="display-3 fw-bold mb-4 hero-title">
+                            <h1 class="display-3 fw-bold mb-4 hero-title pt-4">
                                 {{ __('Ensemble pour un avenir durable') }}
                             </h1>
                             <p class="lead mb-5 fs-4 hero-description">
@@ -115,36 +115,36 @@
 
 <!-- Coordinatrice Section -->
 
-<!-- Mot de la Coordinatrice -->
+<!-- Mot de la Coordinatrice ->
 <section class="coordinator-message-section py-5 position-relative overflow-hidden">
     <div class="container-fluid px-5">
         <div class="row align-items-center">
-            <!-- Image et titre de la coordinatrice -->
+            <!- Image et titre de la coordinatrice ->
             <div class="col-lg-5 mb-5 mb-lg-0">
                 <div class="coordinator-image-container position-relative">
-                    <!-- Décoration de fond -->
+                    <!- Décoration de fond ->
                     <div class="bg-decoration"></div>
                     <div class="bg-decoration-2"></div>
 
-                    <!-- Image de la coordinatrice -->
+                    <!- Image de la coordinatrice ->
                     <div class="image-wrapper position-relative">
                         <img src="{{ asset('images/coordinator-louise.jpg') }}"
                              alt="Louise Angeline LOKUMU"
                              class="coordinator-photo img-fluid rounded-4 shadow-lg">
 
-                        <!-- Badge flottant -->
+                        <!- Badge flottant ->
                         <div class="floating-badge position-absolute">
                             <i class="fas fa-quote-right"></i>
                         </div>
                     </div>
 
-                    <!-- Informations coordinatrice -->
+                    <!- Informations coordinatrice ->
                     <div class="coordinator-info text-center mt-4">
                         <h4 class="fw-bold text-primary mb-1">Louise Angeline LOKUMU</h4>
                         <p class="text-muted fs-5 mb-0">
                             <i class="fas fa-crown me-2 text-warning"></i>Coordinatrice
                         </p>
-                        <!-- Réseaux sociaux -->
+                        <!- Réseaux sociaux ->
                         <div class="social-links mt-3">
                             <a href="#" class="social-link me-2">
                                 <i class="fab fa-linkedin-in"></i>
@@ -160,10 +160,10 @@
                 </div>
             </div>
 
-            <!-- Message de la coordinatrice -->
+            <!- Message de la coordinatrice ->
             <div class="col-lg-7">
                 <div class="message-content position-relative">
-                    <!-- Titre de section -->
+                    <!- Titre de section ->
                     <div class="section-header mb-4">
                         <span class="section-subtitle text-uppercase text-primary fw-bold letter-spacing">
                             {{ __('Leadership') }}
@@ -173,7 +173,7 @@
                         </h2>
                     </div>
 
-                    <!-- Citation principale -->
+                    <!- Citation principale ->
                     <div class="quote-container mb-4">
                         <div class="quote-mark text-primary">
                             <i class="fas fa-quote-left fa-2x opacity-75"></i>
@@ -183,7 +183,7 @@
                         </blockquote>
                     </div>
 
-                    <!-- Message détaillé -->
+                    <!- Message détaillé ->
                     <div class="detailed-message">
                         <p class="lead text-muted lh-lg mb-4">
                             {{ __('Depuis notre création, Action pour le Développement Communautaire s\'engage à être un catalyseur de changement positif. Notre approche participative permet aux communautés de devenir actrices de leur propre développement.') }}
@@ -193,7 +193,7 @@
                             {{ __('À travers nos programmes d\'agriculture durable, d\'autonomisation des femmes et jeunes, de protection environnementale et de gouvernance, nous construisons ensemble un Cameroun plus équitable et prospère.') }}
                         </p>
 
-                        <!-- Engagement personnel -->
+                        <!- Engagement personnel ->
                         <div class="personal-commitment p-4 rounded-3 bg-light border-start border-4 border-primary">
                             <p class="mb-2 text-dark fw-medium">
                                 <i class="fas fa-heart text-danger me-2"></i>
@@ -205,11 +205,181 @@
                         </div>
                     </div>
 
-                    <!-- Signature stylisée -->
+                    <!- Signature stylisée ->
                     <div class="signature-section mt-5">
                         <div class="signature-line"></div>
                         <p class="signature-name text-primary fw-bold fs-5 mb-0">Louise Angeline LOKUMU</p>
                         <small class="text-muted">Coordinatrice, Action for Community Development</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!- Éléments décoratifs de fond ->
+    <div class="floating-elements">
+        <div class="floating-circle floating-circle-1"></div>
+        <div class="floating-circle floating-circle-2"></div>
+        <div class="floating-circle floating-circle-3"></div>
+    </div>
+</section-->
+
+<!-- Présentation de l'Organisation ADC -->
+<section class="organization-presentation-section py-5 position-relative overflow-hidden">
+    <div class="container-fluid px-5">
+        <div class="row align-items-center">
+            <!-- Image illustrative de l'organisation -->
+            <div class="col-lg-5 mb-5 mb-lg-0">
+                <div class="presentation-image-container position-relative">
+                    <!-- Décorations de fond -->
+                    <div class="bg-decoration"></div>
+                    <div class="bg-decoration-2"></div>
+
+                    <!-- Image principale -->
+                    <div class="image-wrapper position-relative">
+                        <img src="{{ asset('images/logo-favicon.png') }}"
+                             alt="Équipe Action pour le Développement Communautaire"
+                             class="presentation-photo img-fluid rounded-4 shadow-lg">
+
+                        <!-- Badge flottant avec logo ADC -->
+                        <div class="floating-badge position-absolute">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+
+                    <!-- Informations sur l'organisation -->
+                    <div class="organization-info text-center mt-4">
+                        <h4 class="fw-bold text-primary mb-1">Action pour le Développement Communautaire</h4>
+                        <p class="text-muted fs-5 mb-0">
+                            <i class="fas fa-users me-2 text-success"></i>Organisation de la Société Civile
+                        </p>
+                        <!-- Éléments visuels représentatifs -->
+                        <div class="org-highlights mt-3">
+                            <span class="highlight-badge me-2">
+                                <i class="fas fa-tree text-success"></i>
+                                <small>Ressources Naturelles</small>
+                            </span>
+                            <span class="highlight-badge me-2">
+                                <i class="fas fa-balance-scale text-primary"></i>
+                                <small>Droits Communautaires</small>
+                            </span>
+                            <span class="highlight-badge">
+                                <i class="fas fa-handshake text-warning"></i>
+                                <small>Gouvernance</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Présentation de l'organisation -->
+            <div class="col-lg-7">
+                <div class="presentation-content position-relative">
+                    <!-- Titre de section -->
+                    <div class="section-header mb-4">
+                        <span class="section-subtitle text-uppercase text-primary fw-bold letter-spacing">
+                            {{ __('Qui sommes-nous') }}
+                        </span>
+                        <h2 class="section-title display-5 fw-bold text-dark mb-4">
+                            {{ __('Notre Organisation') }}
+                        </h2>
+                    </div>
+
+                    <!-- Mission principale -->
+                    <div class="mission-container mb-4">
+                        <div class="mission-icon text-primary">
+                            <i class="fas fa-bullseye fa-2x opacity-75"></i>
+                        </div>
+                        <div class="mission-text">
+                            <h4 class="text-primary fw-bold mb-3">{{ __('Notre Mission') }}</h4>
+                            <p class="lead text-dark lh-lg mb-4">
+                                {{ __('Action pour le Développement Communautaire est une organisation de la société civile qui promeut la gouvernance et la gestion durable et inclusive des ressources naturelles et la promotion et protection des droits des communautés locales et autochtones dont les moyens d\'existence dépendent de l\'exploitation des ressources naturelles.') }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Nos domaines d'action -->
+                    <div class="action-domains mb-4">
+                        <h5 class="text-dark fw-bold mb-3">
+                            <i class="fas fa-cogs text-secondary me-2"></i>
+                            {{ __('Nos domaines d\'action') }}
+                        </h5>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-success">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-seedling text-success me-3 fs-4"></i>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">{{ __('Gestion des Ressources Naturelles') }}</h6>
+                                            <small class="text-muted">{{ __('Promotion d\'une gestion durable et inclusive') }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-primary">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-shield-alt text-primary me-3 fs-4"></i>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">{{ __('Protection des Droits') }}</h6>
+                                            <small class="text-muted">{{ __('Droits des communautés locales et autochtones') }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-warning">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-university text-warning me-3 fs-4"></i>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">{{ __('Gouvernance') }}</h6>
+                                            <small class="text-muted">{{ __('Promotion de la bonne gouvernance') }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-info">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-hands-helping text-info me-3 fs-4"></i>
+                                        <div>
+                                            <h6 class="mb-1 fw-bold">{{ __('Moyens d\'existence') }}</h6>
+                                            <small class="text-muted">{{ __('Soutien aux communautés dépendantes des ressources') }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Engagement organisationnel -->
+                    <div class="organizational-commitment p-4 rounded-3 bg-gradient border-start border-4 border-primary">
+                        <p class="mb-2 text-dark fw-medium">
+                            <i class="fas fa-heart text-danger me-2"></i>
+                            {{ __('Notre engagement') }}
+                        </p>
+                        <p class="text-dark mb-0 fst-italic">
+                            {{ __('Nous œuvrons pour un développement centré sur la personne humaine, en plaçant les communautés au cœur de leurs propres solutions de développement.') }}
+                        </p>
+                    </div>
+
+                    <!-- Boutons d'action -->
+                    <div class="action-buttons mt-4">
+                        <div class="d-flex flex-column flex-md-row gap-3">
+                            <a href="{{ route('about') }}" class="btn btn-primary px-4 py-2 rounded-pill">
+                                <i class="fas fa-info-circle me-2"></i>{{ __('En savoir plus') }}
+                            </a>
+                            <a href="{{ route('projects.index') }}" class="btn btn-outline-success px-4 py-2 rounded-pill">
+                                <i class="fas fa-folder-open me-2"></i>{{ __('Nos projets') }}
+                            </a>
+                            <a href="{{ route('contact.partnership') }}" class="btn btn-outline-warning px-4 py-2 rounded-pill">
+                                <i class="fas fa-handshake me-2"></i>{{ __('Partenariat') }}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,6 +393,7 @@
         <div class="floating-circle floating-circle-3"></div>
     </div>
 </section>
+
 
 
 
@@ -1536,6 +1707,378 @@
     .floating-shape {
         display: none;
     }
+}
+
+/* Section Présentation ADC Styles */
+.organization-presentation-section {
+    background: linear-gradient(135deg, #fffffe 0%, #f8fffe 50%, #f0fdfa 100%);
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Container image présentation */
+.presentation-image-container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Décorations de fond */
+.bg-decoration {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    opacity: 0.08;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.bg-decoration-2 {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, var(--secondary-color), #10B981);
+    border-radius: 50%;
+    opacity: 0.12;
+    z-index: -1;
+    animation: float 4s ease-in-out infinite reverse;
+}
+
+/* Image wrapper */
+.image-wrapper {
+    display: inline-block;
+    max-width: 320px;
+}
+
+.presentation-photo {
+    width: 100%;
+    max-width: 400px;
+    height: 350px;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.presentation-photo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Badge flottant */
+.floating-badge {
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10B981, #059669);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Informations organisation */
+.organization-info h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.org-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.highlight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.highlight-badge:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Section header */
+.section-subtitle {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.letter-spacing {
+    letter-spacing: 2px;
+}
+
+/* Mission container */
+.mission-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.5rem 0;
+}
+
+.mission-icon {
+    flex-shrink: 0;
+    width: 60px;
+    text-align: center;
+}
+
+.mission-text {
+    flex: 1;
+}
+
+/* Domaines d'action */
+.action-domains {
+    margin: 2rem 0;
+}
+
+.domain-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.domain-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Engagement organisationnel */
+.organizational-commitment {
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(16, 185, 129, 0.05)) !important;
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(16, 185, 129, 0.03));
+}
+
+/* Boutons d'action */
+.action-buttons .btn {
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border: none;
+}
+
+.btn-outline-success {
+    border: 2px solid #10B981;
+    color: #10B981;
+}
+
+.btn-outline-success:hover {
+    background: #10B981;
+    border-color: #10B981;
+    color: white;
+}
+
+.btn-outline-warning {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn-outline-warning:hover {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #1F2937;
+}
+
+/* Éléments flottants décoratifs */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.04;
+}
+
+.floating-circle-1 {
+    width: 120px;
+    height: 120px;
+    background: var(--primary-color);
+    top: 15%;
+    right: 8%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.floating-circle-2 {
+    width: 80px;
+    height: 80px;
+    background: var(--secondary-color);
+    bottom: 25%;
+    left: 5%;
+    animation: float 6s ease-in-out infinite reverse;
+}
+
+.floating-circle-3 {
+    width: 100px;
+    height: 100px;
+    background: #10B981;
+    top: 55%;
+    right: 20%;
+    animation: float 10s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .organization-presentation-section {
+        min-height: auto;
+        padding: 4rem 0;
+    }
+
+    .mission-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .mission-icon {
+        width: 100%;
+    }
+
+    .presentation-photo {
+        max-width: 280px;
+        height: 320px;
+    }
+
+    .organization-info h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem !important;
+    }
+
+    .lead {
+        font-size: 1.1rem !important;
+    }
+
+    .presentation-photo {
+        max-width: 250px;
+        height: 300px;
+    }
+
+    .floating-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .action-buttons .d-flex {
+        flex-direction: column;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+
+    .org-highlights {
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .highlight-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .mission-container {
+        padding: 1rem 0;
+    }
+
+    .domain-item {
+        margin-bottom: 1rem;
+    }
+
+    .organizational-commitment {
+        padding: 1rem !important;
+    }
+
+    .organization-info h4 {
+        font-size: 1.1rem;
+        line-height: 1.2;
+    }
+
+    .floating-circle {
+        display: none;
+    }
+}
+
+/* Variables CSS (à ajouter dans votre fichier CSS principal si pas déjà définies) */
+:root {
+    --primary-color: #059669;
+    --secondary-color: #F59E0B;
+    --accent-color: #10B981;
+    --text-dark: #1F2937;
+    --text-light: #6B7280;
 }
 </style>
 

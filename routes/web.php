@@ -19,9 +19,12 @@ use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\ResourceController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Admin\ResourceController as AdminResourceController;
+use App\Http\Controllers\Admin\ResourceCategoryController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\PartnerController;
@@ -44,6 +47,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/team', [AboutController::class, 'team'])->name('team');
 
+    Route::get('/acd-lab', [HomeController::class, 'acdLab'])->name('frontend.acd-lab');
+
     // Routes Projets
     Route::prefix('projects')->name('projects.')->group(function() {
         Route::get('/', [ProjectController::class, 'index'])->name('index');
@@ -56,6 +61,14 @@ use Illuminate\Support\Facades\Route;
     Route::prefix('blog')->name('posts.')->group(function() {
         Route::get('/', [PostController::class, 'index'])->name('index');
         Route::get('/{slug}', [PostController::class, 'show'])->name('show');
+    });
+
+    // Routes Ressources - NOUVEAUTÉ
+    Route::prefix('resources')->name('resources.')->group(function() {
+        Route::get('/', [ResourceController::class, 'index'])->name('index');
+        Route::get('/category/{slug}', [ResourceController::class, 'category'])->name('category');
+        Route::get('/{slug}', [ResourceController::class, 'show'])->name('show');
+        Route::get('/{slug}/download', [ResourceController::class, 'download'])->name('download');
     });
 
     // Routes Contact
@@ -75,6 +88,12 @@ use Illuminate\Support\Facades\Route;
         // Route pour soumettre le formulaire de bénévolat
         Route::post('/volunteer', [ContactController::class, 'storeVolunteer'])->name('volunteer.store');
     });
+
+
+    Route::get('/dashboard', function () {
+        return view('dashboard'); // ou ta vue réelle pour le dashboard
+    })->name('dashboard')->middleware('auth');
+
 
 
     // Routes d'authentification Breeze
@@ -161,6 +180,35 @@ use Illuminate\Support\Facades\Route;
             Route::post('/upload', [MediaController::class, 'upload'])->name('upload');
             Route::delete('/{media}', [MediaController::class, 'destroy'])->name('destroy');
         });
+
+
+          // Gestion des ressources - AJOUT NÉCESSAIRE
+        Route::resource('resources', AdminResourceController::class);
+        Route::resource('resource-categories', ResourceCategoryController::class);
+
+
+        // Actions spéciales pour les ressources
+        Route::prefix('resources')->name('resources.')->group(function () {
+            Route::patch('{resource}/toggle-featured', [AdminResourceController::class, 'toggleFeatured'])
+                ->name('toggle-featured');
+            Route::patch('{resource}/toggle-published', [AdminResourceController::class, 'togglePublished'])
+                ->name('toggle-published');
+            Route::post('bulk-action', [AdminResourceController::class, 'bulkAction'])
+                ->name('bulk-action');
+            Route::get('export', [AdminResourceController::class, 'export'])
+                ->name('export');
+
+            //Route::get('resources/{resource}/download', [ResourceController::class, 'download'])->name('resources.download');
+        });
+
+        // Actions spéciales pour les catégories de ressources
+        Route::prefix('resource-categories')->name('resource-categories.')->group(function () {
+            Route::post('update-order', [ResourceCategoryController::class, 'updateOrder'])
+                ->name('update-order');
+            Route::patch('{resourceCategory}/toggle-active', [ResourceCategoryController::class, 'toggleActive'])
+                ->name('toggle-active');
+        });
+
 
         /* Gestion des utilisateurs
         Route::prefix('users')->name('users.')->group(function() {

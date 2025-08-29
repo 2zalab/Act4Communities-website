@@ -155,6 +155,19 @@
                             {{ __('Actualités') }}
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('resources*') ? 'active' : '' }}" href="{{ route('resources.index') }}">
+                            {{ __('Resources') }}
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('frontend.acd-lab') ? 'active' : '' }}" href="{{ route('frontend.acd-lab') }}">
+                            {{ __('ACD Lab') }}
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {{ request()->routeIs('contact*') ? 'active' : '' }}" href="#" id="contactDropdown" role="button" data-bs-toggle="dropdown">
                             {{ __('Contact') }}

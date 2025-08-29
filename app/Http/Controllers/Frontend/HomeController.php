@@ -49,4 +49,12 @@ class HomeController extends Controller
             'stats'
         ));
     }
+
+     /**
+     * Affiche la page ACD Lab
+     */
+    public function acdLab()
+    {
+        return view('frontend.acd-lab');
+    }
 }
