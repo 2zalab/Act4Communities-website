@@ -32,41 +32,55 @@
                     @method('PUT')
 
                     <!-- Nom -->
-                    <div class="mb-4">
-                        <label for="name" class="form-label fw-bold">
-                            <i class="fas fa-tag me-2 text-primary"></i>Nom de la catégorie
-                        </label>
-                        <input type="text"
-                               class="form-control form-control-lg @error('name') is-invalid @enderror"
-                               id="name"
-                               name="name"
-                               value="{{ old('name', $category->name) }}"
-                               placeholder="Ex: Agriculture durable"
-                               required>
-                        @error('name')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <div class="form-text">
-                            <i class="fas fa-info-circle me-1"></i>
-                            Slug actuel: <code>{{ $category->slug }}</code>
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <label for="name" class="form-label fw-bold"><span class="badge lang-badge lang-badge-fr me-1">FR</span>
+                                    <i class="fas fa-tag me-2 text-primary"></i>Nom de la catégorie
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                       id="name"
+                                       name="name"
+                                       value="{{ old('name', $category->name) }}"
+                                       placeholder="Ex: Agriculture durable"
+                                       required>
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="form-text">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Slug actuel: <code>{{ $category->slug }}</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $category, 'field' => 'name', 'label' => 'Nom', 'type' => 'text'])
                         </div>
                     </div>
 
                     <!-- Description -->
-                    <div class="mb-4">
-                        <label for="description" class="form-label fw-bold">
-                            <i class="fas fa-align-left me-2 text-primary"></i>Description
-                        </label>
-                        <textarea class="form-control @error('description') is-invalid @enderror"
-                                  id="description"
-                                  name="description"
-                                  rows="4"
-                                  placeholder="Décrivez brièvement cette catégorie...">{{ old('description', $category->description) }}</textarea>
-                        @error('description')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <div class="form-text">
-                            <span id="charCount">{{ strlen($category->description ?? '') }}</span>/500 caractères
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <label for="description" class="form-label fw-bold"><span class="badge lang-badge lang-badge-fr me-1">FR</span>
+                                    <i class="fas fa-align-left me-2 text-primary"></i>Description
+                                </label>
+                                <textarea class="form-control @error('description') is-invalid @enderror"
+                                          id="description"
+                                          name="description"
+                                          rows="4"
+                                          placeholder="Décrivez brièvement cette catégorie...">{{ old('description', $category->description) }}</textarea>
+                                @error('description')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="form-text">
+                                    <span id="charCount">{{ strlen($category->description ?? '') }}</span>/500 caractères
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $category, 'field' => 'description', 'label' => 'Description', 'type' => 'textarea', 'rows' => 3])
                         </div>
                     </div>
 
@@ -194,10 +208,6 @@
                         </div>
                     </div>
 
-                    @include('admin.partials.translations', ['model' => $category, 'fields' => [
-                            'name' => ['label' => 'Nom', 'type' => 'text'],
-                            'description' => ['label' => 'Description', 'type' => 'textarea', 'rows' => 3],
-                        ]])
 
                     <!-- Boutons d'action -->
                     <div class="d-flex justify-content-between align-items-center">

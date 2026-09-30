@@ -42,13 +42,20 @@
                     </h5>
                 </div>
                 <div class="card-body">
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Titre <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                               id="title" name="title" value="{{ old('title', $resource->title) }}" required>
-                        @error('title')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="title" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Titre <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                       id="title" name="title" value="{{ old('title', $resource->title) }}" required>
+                                @error('title')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $resource, 'field' => 'title', 'label' => 'Titre', 'type' => 'text'])
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -61,24 +68,38 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description courte</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror"
-                                  id="description" name="description" rows="3"
-                                  placeholder="Résumé de la ressource qui apparaîtra dans les listes">{{ old('description', $resource->description) }}</textarea>
-                        @error('description')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Description courte</label>
+                                <textarea class="form-control @error('description') is-invalid @enderror"
+                                          id="description" name="description" rows="3"
+                                          placeholder="Résumé de la ressource qui apparaîtra dans les listes">{{ old('description', $resource->description) }}</textarea>
+                                @error('description')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $resource, 'field' => 'description', 'label' => 'Description', 'type' => 'textarea', 'rows' => 3])
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="content" class="form-label">Contenu détaillé</label>
-                        <textarea class="form-control @error('content') is-invalid @enderror"
-                                  id="content" name="content" rows="8"
-                                  placeholder="Description détaillée de la ressource, son utilisation, etc.">{{ old('content', $resource->content) }}</textarea>
-                        @error('content')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="content" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Contenu détaillé</label>
+                                <textarea class="form-control @error('content') is-invalid @enderror"
+                                          id="content" name="content" rows="8"
+                                          placeholder="Description détaillée de la ressource, son utilisation, etc.">{{ old('content', $resource->content) }}</textarea>
+                                @error('content')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $resource, 'field' => 'content', 'label' => 'Contenu détaillé', 'type' => 'textarea', 'rows' => 8])
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -189,35 +210,42 @@
                     </h5>
                 </div>
                 <div class="card-body">
-                    <div class="mb-3">
-                        <label for="meta_title" class="form-label">Titre SEO</label>
-                        <input type="text" class="form-control @error('meta_title') is-invalid @enderror"
-                               id="meta_title" name="meta_title" value="{{ old('meta_title', $resource->meta_title) }}" maxlength="255">
-                        <div class="form-text">Titre optimisé pour les moteurs de recherche (max 60 caractères recommandés)</div>
-                        @error('meta_title')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="meta_title" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Titre SEO</label>
+                                <input type="text" class="form-control @error('meta_title') is-invalid @enderror"
+                                       id="meta_title" name="meta_title" value="{{ old('meta_title', $resource->meta_title) }}" maxlength="255">
+                                <div class="form-text">Titre optimisé pour les moteurs de recherche (max 60 caractères recommandés)</div>
+                                @error('meta_title')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $resource, 'field' => 'meta_title', 'label' => 'Titre SEO', 'type' => 'text'])
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="meta_description" class="form-label">Description SEO</label>
-                        <textarea class="form-control @error('meta_description') is-invalid @enderror"
-                                  id="meta_description" name="meta_description" rows="3" maxlength="500"
-                                  placeholder="Description qui apparaîtra dans les résultats de recherche">{{ old('meta_description', $resource->meta_description) }}</textarea>
-                        <div class="form-text">Description pour les moteurs de recherche (max 160 caractères recommandés)</div>
-                        @error('meta_description')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="meta_description" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Description SEO</label>
+                                <textarea class="form-control @error('meta_description') is-invalid @enderror"
+                                          id="meta_description" name="meta_description" rows="3" maxlength="500"
+                                          placeholder="Description qui apparaîtra dans les résultats de recherche">{{ old('meta_description', $resource->meta_description) }}</textarea>
+                                <div class="form-text">Description pour les moteurs de recherche (max 160 caractères recommandés)</div>
+                                @error('meta_description')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $resource, 'field' => 'meta_description', 'label' => 'Description SEO', 'type' => 'textarea', 'rows' => 3])
+                        </div>
                     </div>
                 </div>
             </div>
-            @include('admin.partials.translations', ['model' => $resource, 'fields' => [
-                'title' => ['label' => 'Titre', 'type' => 'text'],
-                'description' => ['label' => 'Description', 'type' => 'textarea', 'rows' => 3],
-                'content' => ['label' => 'Contenu détaillé', 'type' => 'textarea', 'rows' => 8],
-                'meta_title' => ['label' => 'Titre SEO', 'type' => 'text'],
-                'meta_description' => ['label' => 'Description SEO', 'type' => 'textarea', 'rows' => 3],
-            ]])
         </div>
 
         <!-- Sidebar -->

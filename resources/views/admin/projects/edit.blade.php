@@ -20,31 +20,52 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Titre <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                               id="title" name="title" value="{{ old('title', $project->title) }}" required>
-                        @error('title')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="title" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Titre <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                       id="title" name="title" value="{{ old('title', $project->title) }}" required>
+                                @error('title')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $project, 'field' => 'title', 'label' => 'Titre', 'type' => 'text'])
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="excerpt" class="form-label">Résumé <span class="text-danger">*</span></label>
-                        <textarea class="form-control @error('excerpt') is-invalid @enderror"
-                                  id="excerpt" name="excerpt" rows="3" required>{{ old('excerpt', $project->excerpt) }}</textarea>
-                        @error('excerpt')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="excerpt" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Résumé <span class="text-danger">*</span></label>
+                                <textarea class="form-control @error('excerpt') is-invalid @enderror"
+                                          id="excerpt" name="excerpt" rows="3" required>{{ old('excerpt', $project->excerpt) }}</textarea>
+                                @error('excerpt')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $project, 'field' => 'excerpt', 'label' => 'Résumé', 'type' => 'textarea', 'rows' => 3])
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description complète <span class="text-danger">*</span></label>
-                        <textarea class="form-control @error('description') is-invalid @enderror"
-                                  id="description" name="description" rows="8" required>{{ old('description', $project->description) }}</textarea>
-                        @error('description')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Description complète <span class="text-danger">*</span></label>
+                                <textarea class="form-control @error('description') is-invalid @enderror"
+                                          id="description" name="description" rows="8" required>{{ old('description', $project->description) }}</textarea>
+                                @error('description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $project, 'field' => 'description', 'label' => 'Description complète', 'type' => 'textarea', 'rows' => 8])
+                        </div>
                     </div>
 
                     <div class="row">
@@ -100,21 +121,28 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="location" class="form-label">Localisation</label>
-                            <input type="text" class="form-control @error('location') is-invalid @enderror"
-                                   id="location" name="location" value="{{ old('location', $project->location) }}">
-                            @error('location')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="col-md-6 mb-3">
                             <label for="budget" class="form-label">Budget (FCFA)</label>
                             <input type="number" class="form-control @error('budget') is-invalid @enderror"
                                    id="budget" name="budget" value="{{ old('budget', $project->budget) }}" min="0">
                             @error('budget')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                        </div>
+                    </div>
+
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="location" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Localisation</label>
+                                <input type="text" class="form-control @error('location') is-invalid @enderror"
+                                       id="location" name="location" value="{{ old('location', $project->location) }}">
+                                @error('location')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $project, 'field' => 'location', 'label' => 'Localisation', 'type' => 'text'])
                         </div>
                     </div>
 
@@ -131,53 +159,67 @@
                     </div>
 
                     <!-- Objectifs -->
-                    <div class="mb-3">
-                        <label class="form-label">Objectifs</label>
-                        <div id="objectives-container">
-                            @forelse(old('objectives', $project->objectives ?? []) as $objective)
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="objectives[]" value="{{ $objective }}" placeholder="Objectif...">
-                                <button type="button" class="btn btn-outline-danger remove-objective">
-                                    <i class="fas fa-minus"></i>
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Objectifs</label>
+                                <div id="objectives-container">
+                                    @forelse(old('objectives', $project->objectives ?? []) as $objective)
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" name="objectives[]" value="{{ $objective }}" placeholder="Objectif...">
+                                        <button type="button" class="btn btn-outline-danger remove-objective">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    @empty
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" name="objectives[]" placeholder="Objectif...">
+                                        <button type="button" class="btn btn-outline-danger remove-objective" disabled>
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    @endforelse
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline-primary" id="add-objective">
+                                    <i class="fas fa-plus me-1"></i>Ajouter un objectif
                                 </button>
                             </div>
-                            @empty
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="objectives[]" placeholder="Objectif...">
-                                <button type="button" class="btn btn-outline-danger remove-objective" disabled>
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            @endforelse
                         </div>
-                        <button type="button" class="btn btn-sm btn-outline-primary" id="add-objective">
-                            <i class="fas fa-plus me-1"></i>Ajouter un objectif
-                        </button>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $project, 'field' => 'objectives', 'label' => 'Objectifs', 'type' => 'lines', 'rows' => 4])
+                        </div>
                     </div>
 
                     <!-- Résultats attendus -->
-                    <div class="mb-3">
-                        <label class="form-label">Résultats attendus</label>
-                        <div id="results-container">
-                            @forelse(old('expected_results', $project->expected_results ?? []) as $result)
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="expected_results[]" value="{{ $result }}" placeholder="Résultat attendu...">
-                                <button type="button" class="btn btn-outline-danger remove-result">
-                                    <i class="fas fa-minus"></i>
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Résultats attendus</label>
+                                <div id="results-container">
+                                    @forelse(old('expected_results', $project->expected_results ?? []) as $result)
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" name="expected_results[]" value="{{ $result }}" placeholder="Résultat attendu...">
+                                        <button type="button" class="btn btn-outline-danger remove-result">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    @empty
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" name="expected_results[]" placeholder="Résultat attendu...">
+                                        <button type="button" class="btn btn-outline-danger remove-result" disabled>
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    @endforelse
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline-primary" id="add-result">
+                                    <i class="fas fa-plus me-1"></i>Ajouter un résultat
                                 </button>
                             </div>
-                            @empty
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="expected_results[]" placeholder="Résultat attendu...">
-                                <button type="button" class="btn btn-outline-danger remove-result" disabled>
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            @endforelse
                         </div>
-                        <button type="button" class="btn btn-sm btn-outline-primary" id="add-result">
-                            <i class="fas fa-plus me-1"></i>Ajouter un résultat
-                        </button>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => $project, 'field' => 'expected_results', 'label' => 'Résultats attendus', 'type' => 'lines', 'rows' => 4])
+                        </div>
                     </div>
 
                     <div class="form-check mb-3">
@@ -196,14 +238,6 @@
                         </label>
                     </div>
 
-                    @include('admin.partials.translations', ['model' => $project, 'fields' => [
-                            'title' => ['label' => 'Titre', 'type' => 'text'],
-                            'excerpt' => ['label' => 'Résumé', 'type' => 'textarea', 'rows' => 3],
-                            'description' => ['label' => 'Description complète', 'type' => 'textarea', 'rows' => 8],
-                            'location' => ['label' => 'Localisation', 'type' => 'text'],
-                            'objectives' => ['label' => 'Objectifs', 'type' => 'lines', 'rows' => 4],
-                            'expected_results' => ['label' => 'Résultats attendus', 'type' => 'lines', 'rows' => 4],
-                        ]])
 
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">

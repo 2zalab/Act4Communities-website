@@ -17,17 +17,38 @@
     <div class="card-body">
         <form method="POST" action="{{ route('admin.posts.store') }}" enctype="multipart/form-data">
             @csrf
-            <div class="mb-3">
-                <label for="title" class="form-label">Titre</label>
-                <input type="text" class="form-control" id="title" name="title" required>
+            <div class="row bilingual-row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="title" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Titre</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @include('admin.partials.translation-field', ['model' => null, 'field' => 'title', 'label' => 'Titre', 'type' => 'text'])
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="excerpt" class="form-label">Extrait</label>
-                <textarea class="form-control" id="excerpt" name="excerpt" rows="3" required></textarea>
+            <div class="row bilingual-row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="excerpt" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Extrait</label>
+                        <textarea class="form-control" id="excerpt" name="excerpt" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @include('admin.partials.translation-field', ['model' => null, 'field' => 'excerpt', 'label' => 'Extrait', 'type' => 'textarea', 'rows' => 3])
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Contenu</label>
-                <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+            <div class="row bilingual-row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="content" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Contenu</label>
+                        <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @include('admin.partials.translation-field', ['model' => null, 'field' => 'content', 'label' => 'Contenu', 'type' => 'textarea', 'rows' => 10])
+                </div>
             </div>
             <div class="mb-3">
                 <label for="featured_image" class="form-label">Image mise en avant</label>
@@ -65,11 +86,6 @@
                 <label for="published_at" class="form-label">Date de publication</label>
                 <input type="datetime-local" class="form-control" id="published_at" name="published_at">
             </div>
-            @include('admin.partials.translations', ['model' => null, 'fields' => [
-                    'title' => ['label' => 'Titre', 'type' => 'text'],
-                    'excerpt' => ['label' => 'Extrait', 'type' => 'textarea', 'rows' => 3],
-                    'content' => ['label' => 'Contenu', 'type' => 'textarea', 'rows' => 10],
-                ]])
 
             <button type="submit" class="btn btn-primary">Créer</button>
         </form>
