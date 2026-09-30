@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasTranslations;
 use Illuminate\Support\Str;
 
 class ResourceCategory extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+
+    /** Champs traduisibles (version anglaise dans la colonne translations) */
+    protected $translatable = ['name', 'description'];
 
     protected $fillable = [
         'name',
@@ -17,7 +21,7 @@ class ResourceCategory extends Model
         'icon',
         'color',
         'sort_order',
-        'is_active',
+        'is_active', 'translations'
     ];
 
     protected $casts = [

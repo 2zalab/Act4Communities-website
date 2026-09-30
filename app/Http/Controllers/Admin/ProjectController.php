@@ -52,7 +52,7 @@ class ProjectController extends Controller
             $validated['featured_image'] = $this->uploadImage($request->file('featured_image'), 'projects');
         }
 
-        Project::create($validated);
+        (new Project($validated))->fillTranslationsFromRequest($request, ['objectives', 'expected_results'])->save();
 
         return redirect()->route('admin.projects.index')
                         ->with('success', 'Projet créé avec succès.');
@@ -95,7 +95,7 @@ class ProjectController extends Controller
             $validated['featured_image'] = $this->uploadImage($request->file('featured_image'), 'projects');
         }
 
-        $project->update($validated);
+        $project->fill($validated)->fillTranslationsFromRequest($request, ['objectives', 'expected_results'])->save();
 
         return redirect()->route('admin.projects.index')
                         ->with('success', 'Projet mis à jour avec succès.');

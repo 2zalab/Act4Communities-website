@@ -64,7 +64,7 @@ class ResourceCategoryController extends Controller
             $data['sort_order'] = ResourceCategory::max('sort_order') + 1;
         }
 
-        ResourceCategory::create($data);
+        (new ResourceCategory($data))->fillTranslationsFromRequest($request)->save();
 
         return redirect()->route('admin.resource-categories.index')
                         ->with('success', 'Catégorie créée avec succès.');
@@ -115,7 +115,7 @@ class ResourceCategoryController extends Controller
         // Checkbox value
         $data['is_active'] = $request->has('is_active');
 
-        $resourceCategory->update($data);
+        $resourceCategory->fill($data)->fillTranslationsFromRequest($request)->save();
 
         return redirect()->route('admin.resource-categories.index')
                         ->with('success', 'Catégorie mise à jour avec succès.');

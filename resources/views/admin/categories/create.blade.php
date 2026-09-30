@@ -177,6 +177,11 @@
                         </div>
                     </div>
 
+                    @include('admin.partials.translations', ['model' => null, 'fields' => [
+                            'name' => ['label' => 'Nom', 'type' => 'text'],
+                            'description' => ['label' => 'Description', 'type' => 'textarea', 'rows' => 3],
+                        ]])
+
                     <!-- Boutons d'action -->
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="{{ route('admin.categories.index') }}" class="btn btn-outline-secondary">

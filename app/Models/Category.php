@@ -4,15 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasTranslations;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+
+    /** Champs traduisibles (version anglaise dans la colonne translations) */
+    protected $translatable = ['name', 'description'];
 
     protected $fillable = [
-        'name', 'slug', 'description', 'color', 'icon', 'is_active'
+        'name', 'slug', 'description', 'color', 'icon', 'is_active', 'translations'
     ];
 
     protected $casts = [

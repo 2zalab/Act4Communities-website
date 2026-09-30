@@ -71,6 +71,12 @@
                 <label for="published_at" class="form-label">Date de publication</label>
                 <input type="datetime-local" class="form-control" id="published_at" name="published_at" value="{{ old('published_at', $post->published_at ? $post->published_at->format('Y-m-d\TH:i') : '') }}">
             </div>
+            @include('admin.partials.translations', ['model' => $post, 'fields' => [
+                    'title' => ['label' => 'Titre', 'type' => 'text'],
+                    'excerpt' => ['label' => 'Extrait', 'type' => 'textarea', 'rows' => 3],
+                    'content' => ['label' => 'Contenu', 'type' => 'textarea', 'rows' => 10],
+                ]])
+
             <button type="submit" class="btn btn-primary">Mettre à jour</button>
         </form>
     </div>

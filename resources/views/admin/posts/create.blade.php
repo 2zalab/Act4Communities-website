@@ -65,6 +65,12 @@
                 <label for="published_at" class="form-label">Date de publication</label>
                 <input type="datetime-local" class="form-control" id="published_at" name="published_at">
             </div>
+            @include('admin.partials.translations', ['model' => null, 'fields' => [
+                    'title' => ['label' => 'Titre', 'type' => 'text'],
+                    'excerpt' => ['label' => 'Extrait', 'type' => 'textarea', 'rows' => 3],
+                    'content' => ['label' => 'Contenu', 'type' => 'textarea', 'rows' => 10],
+                ]])
+
             <button type="submit" class="btn btn-primary">Créer</button>
         </form>
     </div>
