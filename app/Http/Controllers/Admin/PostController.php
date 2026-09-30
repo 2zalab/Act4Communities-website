@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Support\Media;
 use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
@@ -75,7 +75,7 @@ class PostController extends Controller
 
         if ($request->hasFile('featured_image')) {
             if ($post->featured_image) {
-                Storage::disk('public')->delete($post->featured_image);
+                Media::delete($post->featured_image);
             }
             $validated['featured_image'] = $this->uploadImage($request->file('featured_image'), 'posts');
         }
@@ -89,7 +89,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         if ($post->featured_image) {
-            Storage::disk('public')->delete($post->featured_image);
+            Media::delete($post->featured_image);
         }
 
         $post->delete();
@@ -100,16 +100,14 @@ class PostController extends Controller
 
     private function uploadImage($file, $folder)
     {
-        $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-        $path = "images/{$folder}/" . $filename;
+        $filename = time() . '_' . uniqid() . '.' . strtolower($file->getClientOriginalExtension());
 
-        $image = Image::make($file)->resize(800, 600, function ($constraint) {
+        // Redimensionnement puis enregistrement direct dans public/images/{dossier}
+        $image = Image::make($file)->resize(1200, 900, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         });
 
-        Storage::disk('public')->put($path, $image->encode());
-
-        return $path;
+        return Media::put((string) $image->encode(null, 85), $folder, $filename);
     }
 }

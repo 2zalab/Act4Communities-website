@@ -123,7 +123,7 @@
                     <tr>
                         <td>
                             @if($partner->logo)
-                            <img src="{{ Storage::url($partner->logo) }}"
+                            <img src="{{ $partner->logo_url }}"
                                  alt="{{ $partner->name }}"
                                  class="img-thumbnail"
                                  style="width: 50px; height: 50px; object-fit: contain;">

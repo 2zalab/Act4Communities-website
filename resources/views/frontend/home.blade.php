@@ -2,7 +2,7 @@
 @extends('frontend.layouts.app')
 
 @section('title', 'Accueil')
-@section('description', 'Action pour le Développement Communautaire - OSC camerounaise œuvrant pour le développement durable et les droits des communautés')
+@section('description', 'Action pour le Développement Communautaire (ADC) est une organisation de la société civile camerounaise qui promeut la gouvernance et la gestion durable des ressources naturelles, les droits des communautés locales et autochtones et la protection de l\'environnement.')
 
 @section('content')
 
@@ -49,15 +49,12 @@
                 <div class="container-fluid px-5 h-100">
                     <div class="row align-items-center h-100">
                         <div class=" mx-auto text-center text-white">
-                            <h1 class="display-3 fw-bold mb-4 hero-title pt-4">
-                                {{ __('Autonomisation des communautés locales') }}
+                            <h1 class="display-3 fw-bold mb-5 hero-title pt-4">
+                                {{ __('S\'engager avec nous') }}
                             </h1>
-                            <p class="lead mb-5 fs-4 hero-description">
-                                {{ __('Nous œuvrons pour l\'agriculture durable, l\'autonomisation des femmes et jeunes, la protection de l\'environnement et la bonne gouvernance au Cameroun.') }}
-                            </p>
                             <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
-                                <a href="{{ route('about') }}" class="btn btn-warning btn-lg px-5 py-2 rounded-pill">
-                                    <i class="fas fa-info-circle me-2"></i>{{ __('À propos de nous') }}
+                                <a href="{{ route('contact.partnership') }}" class="btn btn-warning btn-lg px-5 py-2 rounded-pill">
+                                    <i class="fas fa-handshake me-2"></i>{{ __('Partenariat') }}
                                 </a>
                                 <a href="{{ route('contact.volunteer') }}" class="btn btn-outline-light btn-lg px-5 py-2 rounded-pill">
                                     <i class="fas fa-hand-holding-heart me-2"></i>{{ __('Devenir bénévole') }}
@@ -285,71 +282,72 @@
                         </h2>
                     </div>
 
-                    <!-- Mission principale -->
-                    <div class="mission-container mb-4">
-                        <div class="mission-icon text-primary">
-                            <i class="fas fa-bullseye fa-2x opacity-75"></i>
-                        </div>
-                        <div class="mission-text">
-                            <h4 class="text-primary fw-bold mb-3">{{ __('Notre Mission') }}</h4>
-                            <p class="lead text-dark lh-lg mb-4">
-                                {{ __('Action pour le Développement Communautaire est une organisation de la société civile qui promeut la gouvernance et la gestion durable et inclusive des ressources naturelles et la promotion et protection des droits des communautés locales et autochtones dont les moyens d\'existence dépendent de l\'exploitation des ressources naturelles.') }}
-                            </p>
-                        </div>
-                    </div>
+                    <!-- Présentation -->
+                    <p class="lead text-dark lh-lg mb-4">
+                        {{ __('Action pour le Développement Communautaire est une organisation de la société civile qui promeut la gouvernance et la gestion durable et inclusives des ressources naturelles, la promotion et protection des droits des communautés locales et autochtones dont les moyens d\'existence dépendent de l\'exploitation des ressources naturelles et la protection de l\'environnement.') }}
+                    </p>
 
-                    <!-- Nos domaines d'action -->
+                    <!-- Les domaines d'intervention -->
                     <div class="action-domains mb-4">
                         <h5 class="text-dark fw-bold mb-3">
                             <i class="fas fa-cogs text-secondary me-2"></i>
-                            {{ __('Nos domaines d\'action') }}
+                            {{ __('Les domaines d\'intervention') }}
                         </h5>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-success">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-success h-100">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-seedling text-success me-3 fs-4"></i>
-                                        <div>
-                                            <h6 class="mb-1 fw-bold">{{ __('Gestion des Ressources Naturelles') }}</h6>
-                                            <small class="text-muted">{{ __('Promotion d\'une gestion durable et inclusive') }}</small>
-                                        </div>
+                                        <i class="fas fa-tree text-success me-3 fs-4"></i>
+                                        <h6 class="mb-0 fw-bold">{{ __('Gouvernance et gestion durable et inclusives des ressources naturelles') }}</h6>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-6 mb-3">
-                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-primary">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-primary h-100">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-shield-alt text-primary me-3 fs-4"></i>
-                                        <div>
-                                            <h6 class="mb-1 fw-bold">{{ __('Protection des Droits') }}</h6>
-                                            <small class="text-muted">{{ __('Droits des communautés locales et autochtones') }}</small>
-                                        </div>
+                                        <i class="fas fa-balance-scale text-primary me-3 fs-4"></i>
+                                        <h6 class="mb-0 fw-bold">{{ __('Promotion des droits humains et du genre') }}</h6>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-6 mb-3">
-                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-warning">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-warning h-100">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-university text-warning me-3 fs-4"></i>
-                                        <div>
-                                            <h6 class="mb-1 fw-bold">{{ __('Gouvernance') }}</h6>
-                                            <small class="text-muted">{{ __('Promotion de la bonne gouvernance') }}</small>
-                                        </div>
+                                        <i class="fas fa-temperature-high text-warning me-3 fs-4"></i>
+                                        <h6 class="mb-0 fw-bold">{{ __('Lutte contre les changements climatiques') }}</h6>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-6 mb-3">
-                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-info">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-success h-100">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-hands-helping text-info me-3 fs-4"></i>
-                                        <div>
-                                            <h6 class="mb-1 fw-bold">{{ __('Moyens d\'existence') }}</h6>
-                                            <small class="text-muted">{{ __('Soutien aux communautés dépendantes des ressources') }}</small>
-                                        </div>
+                                        <i class="fas fa-leaf text-success me-3 fs-4"></i>
+                                        <h6 class="mb-0 fw-bold">{{ __('Protection de l\'environnement') }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-warning h-100">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-seedling text-warning me-3 fs-4"></i>
+                                        <h6 class="mb-0 fw-bold">{{ __('Souveraineté et sécurité alimentaires') }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-info h-100">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-tint text-info me-3 fs-4"></i>
+                                        <h6 class="mb-0 fw-bold">{{ __('Eau, Hygiène et Assainissement') }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="domain-item p-3 rounded-3 bg-light border-start border-4 border-danger h-100">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-house-damage text-danger me-3 fs-4"></i>
+                                        <h6 class="mb-0 fw-bold">{{ __('Réduction des risques de catastrophes') }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -566,13 +564,13 @@
 @if($featuredProjects->count() > 0)
 <section class="py-5">
     <div class="container-fluid px-5">
-        <h2 class="text-center section-title fw-bold">{{ __('Nos projets phares') }}</h2>
+        <h2 class="text-center section-title fw-bold">{{ __('NOS PROJETS') }}</h2>
         <div class="row">
             @foreach($featuredProjects->take(6) as $project)
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     @if($project->featured_image)
-                    <img src="{{ asset('storage/' . $project->featured_image) }}" class="card-img-top" alt="{{ $project->title }}" style="height: 200px; object-fit: cover;">
+                    <img src="{{ media_url($project->featured_image) }}" class="card-img-top" alt="{{ $project->title }}" style="height: 200px; object-fit: cover;">
                     @endif
                     <div class="card-body d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start mb-2">
@@ -603,31 +601,6 @@
 </section>
 @endif
 
-<!-- Domains of Intervention -->
-<section class="py-5 bg-light">
-    <div class="container-fluid px-5">
-        <h2 class="text-center section-title fw-bold">{{ __('Nos domaines d\'intervention') }}</h2>
-        <div class="row">
-            @foreach($categories as $category)
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <i class="{{ $category->icon }} fa-3x" style="color: {{ $category->color }}"></i>
-                        </div>
-                        <h5 class="card-title">{{ $category->name }}</h5>
-                        <p class="card-text">{{ $category->description }}</p>
-                        <small class="text-muted">
-                            {{ $category->projects_count }} {{ __('projet(s)') }}
-                        </small>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
 <!-- Recent News -->
 @if($recentPosts->count() > 0)
 <section class="py-5">
@@ -638,7 +611,7 @@
             <div class="col-lg-4 mb-4">
                 <article class="card h-100">
                     @if($post->featured_image)
-                    <img src="{{ asset('storage/' . $post->featured_image) }}" class="card-img-top" alt="{{ $post->title }}" style="height: 200px; object-fit: cover;">
+                    <img src="{{ media_url($post->featured_image) }}" class="card-img-top" alt="{{ $post->title }}" style="height: 200px; object-fit: cover;">
                     @endif
                     <div class="card-body d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-center mb-2">
@@ -678,7 +651,9 @@
                 <div class="card border-0 bg-transparent">
                     <div class="card-body">
                         @if($partner->logo)
-                        <img src="{{ asset('storage/' . $partner->logo) }}" alt="{{ $partner->name }}" class="img-fluid" style="max-height: 80px; filter: grayscale(100%); transition: filter 0.3s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+                        <a href="{{ $partner->website ?: '#' }}" @if($partner->website) target="_blank" rel="noopener" @endif title="{{ $partner->name }}" class="partner-logo-link d-flex align-items-center justify-content-center">
+                            <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}" class="img-fluid partner-logo" loading="lazy">
+                        </a>
                         @else
                         <h6 class="text-muted">{{ $partner->name }}</h6>
                         @endif
@@ -713,6 +688,25 @@
 </section>
 
 <style>
+/* Logos partenaires */
+.partner-logo-link {
+    height: 110px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.partner-logo-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.partner-logo {
+    max-height: 90px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 /* Section Coordinatrice Styles */
 .coordinator-message-section {
     background: linear-gradient(135deg, #fffffe 0%, #fffdfa 100%);

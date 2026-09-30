@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\ResourceController;
+use App\Http\Controllers\Frontend\SitemapController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
@@ -42,6 +43,9 @@ use Illuminate\Support\Facades\Route;
 
     // Routes Frontend
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    // Plan du site pour les moteurs de recherche
+    Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
     // Routes À propos
     Route::get('/about', [AboutController::class, 'index'])->name('about');

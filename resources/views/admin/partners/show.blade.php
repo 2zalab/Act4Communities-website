@@ -44,7 +44,7 @@
                 <div class="row">
                     @if($partner->logo)
                     <div class="col-md-3 text-center mb-3">
-                        <img src="{{ Storage::url($partner->logo) }}"
+                        <img src="{{ $partner->logo_url }}"
                              alt="{{ $partner->name }}"
                              class="img-fluid rounded border"
                              style="max-width: 200px; max-height: 200px; object-fit: contain;">
@@ -207,7 +207,7 @@
                 <h6 class="mb-0">Logo</h6>
             </div>
             <div class="card-body text-center">
-                <img src="{{ Storage::url($partner->logo) }}"
+                <img src="{{ $partner->logo_url }}"
                      alt="{{ $partner->name }}"
                      class="img-fluid rounded border"
                      style="max-width: 100%; max-height: 200px; object-fit: contain;">

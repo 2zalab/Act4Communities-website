@@ -7,7 +7,6 @@ use App\Models\Project;
 use App\Models\Post;
 use App\Models\Partner;
 use App\Models\Testimonial;
-use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -29,10 +28,6 @@ class HomeController extends Controller
 
         $testimonials = Testimonial::where('is_active', true)->take(3)->get();
 
-        $categories = Category::where('is_active', true)
-                             ->withCount('projects')
-                             ->get();
-
         $stats = [
             'projects_completed' => Project::where('status', 'completed')->count(),
             'active_projects' => Project::where('status', 'active')->count(),
@@ -45,7 +40,6 @@ class HomeController extends Controller
             'recentPosts',
             'partners',
             'testimonials',
-            'categories',
             'stats'
         ));
     }

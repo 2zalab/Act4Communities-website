@@ -149,7 +149,7 @@
 
                             @if($project->featured_image)
                             <div class="mt-4">
-                                <img src="{{ asset('storage/' . $project->featured_image) }}"
+                                <img src="{{ media_url($project->featured_image) }}"
                                      alt="Image du projet {{ $project->title }}"
                                      class="img-fluid rounded shadow"
                                      style="width: 100%; height: auto; object-fit: cover;">

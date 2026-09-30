@@ -163,7 +163,7 @@
 
                             <!-- Thumbnail -->
                             <div class="resource-thumbnail">
-                                 <img src="{{ asset('storage/' . $resource->thumbnail) }}"
+                                 <img src="{{ media_url($resource->thumbnail) }}"
                                     alt="{{ $resource->title }}"
                                     class="img-fluid">
                                 <div class="thumbnail-overlay">

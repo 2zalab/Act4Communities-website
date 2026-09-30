@@ -18,9 +18,9 @@ class ContactController extends Controller
     public function index()
     {
         $contactInfo = [
-            'phones' => ['+237 696 740 438', '+237 698 288 072'],
+            'phones' => ['+237 696 740 438', '+237 698 288 072', '+237 694 813 985'],
             'office' => '+237 222 271 205',
-            'email' => 'contact@act4communities.org',
+            'emails' => ['contact@action4communities.org', 'fieldworkers@yahoo.com'],
             'address' => 'Garoua / Marouaré, Cameroun'
         ];
 

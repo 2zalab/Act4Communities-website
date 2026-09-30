@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Support\Media;
 
 class Partner extends Model
 {
@@ -16,6 +17,11 @@ class Partner extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public function getLogoUrlAttribute()
+    {
+        return Media::url($this->logo);
+    }
 
     public function scopeActive($query)
     {

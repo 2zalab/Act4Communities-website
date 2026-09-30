@@ -109,7 +109,7 @@
                 @if($resource->thumbnail)
                     <div class="resource-preview mb-5">
                         <div class="preview-container text-center">
-                            <img src="{{ asset('storage/' . $resource->thumbnail) }}"
+                            <img src="{{ media_url($resource->thumbnail) }}"
                                  alt="{{ $resource->title }}"
                                  class="img-fluid rounded shadow-lg">
                             <div class="preview-overlay">

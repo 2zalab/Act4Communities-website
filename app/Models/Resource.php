@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use App\Support\Media;
 
 class Resource extends Model
 {
@@ -185,11 +186,7 @@ class Resource extends Model
 
     public function getThumbnailUrlAttribute()
     {
-        if ($this->thumbnail && Storage::disk('public')->exists($this->thumbnail)) {
-            return Storage::disk('public')->url($this->thumbnail);
-        }
-
-        return null; // Retourner null au lieu d'images par défaut qui n'existent pas
+        return $this->hasThumbnail() ? Media::url($this->thumbnail) : null;
     }
     /*
     public function getThumbnailUrlAttribute()
@@ -219,7 +216,7 @@ class Resource extends Model
      */
     public function hasThumbnail()
     {
-        return $this->thumbnail && Storage::disk('public')->exists($this->thumbnail);
+        return Media::exists($this->thumbnail);
     }
 
     /**

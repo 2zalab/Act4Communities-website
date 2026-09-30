@@ -33,7 +33,7 @@
                         <h5 class="card-title">{{ __('Téléphones') }}</h5>
                         @foreach($contactInfo['phones'] as $phone)
                         <p class="card-text mb-1">
-                            <a href="tel:{{ $phone }}" class="text-decoration-none">{{ $phone }}</a>
+                            <a href="tel:{{ str_replace(' ', '', $phone) }}" class="text-decoration-none">{{ $phone }}</a>
                         </p>
                         @endforeach
                     </div>
@@ -46,7 +46,7 @@
                         <i class="fas fa-building fa-3x text-primary mb-3"></i>
                         <h5 class="card-title">{{ __('Bureau') }}</h5>
                         <p class="card-text">
-                            <a href="tel:{{ $contactInfo['office'] }}" class="text-decoration-none">
+                            <a href="tel:{{ str_replace(' ', '', $contactInfo['office']) }}" class="text-decoration-none">
                                 {{ $contactInfo['office'] }}
                             </a>
                         </p>
@@ -59,11 +59,11 @@
                     <div class="card-body">
                         <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
                         <h5 class="card-title">{{ __('Email') }}</h5>
-                        <p class="card-text">
-                            <a href="mailto:{{ $contactInfo['email'] }}" class="text-decoration-none">
-                                {{ $contactInfo['email'] }}
-                            </a>
+                        @foreach($contactInfo['emails'] as $email)
+                        <p class="card-text mb-1">
+                            <a href="mailto:{{ $email }}" class="text-decoration-none text-break">{{ $email }}</a>
                         </p>
+                        @endforeach
                     </div>
                 </div>
             </div>

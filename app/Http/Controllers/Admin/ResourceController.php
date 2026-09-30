@@ -7,6 +7,7 @@ use App\Models\Resource;
 use App\Models\ResourceCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Support\Media;
 use Illuminate\Support\Str;
 
 class ResourceController extends Controller
@@ -129,7 +130,7 @@ class ResourceController extends Controller
 
             if ($thumbnail->isValid()) {
                 $thumbnailName = time() . '_thumb_' . Str::slug(pathinfo($thumbnail->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $thumbnail->getClientOriginalExtension();
-                $thumbnailPath = $thumbnail->storeAs('resources/thumbnails', $thumbnailName, 'public');
+                $thumbnailPath = $thumbnail->storeAs('images/resources/thumbnails', $thumbnailName, Media::DISK);
                 $data['thumbnail'] = $thumbnailPath;
             }
         }
@@ -147,8 +148,8 @@ class ResourceController extends Controller
             if (isset($data['file_path']) && Storage::disk('public')->exists($data['file_path'])) {
                 Storage::disk('public')->delete($data['file_path']);
             }
-            if (isset($data['thumbnail']) && Storage::disk('public')->exists($data['thumbnail'])) {
-                Storage::disk('public')->delete($data['thumbnail']);
+            if (isset($data['thumbnail'])) {
+                Media::delete($data['thumbnail']);
             }
 
             return back()->withErrors(['error' => 'Erreur lors de la création de la ressource.'])->withInput();
@@ -256,7 +257,7 @@ class ResourceController extends Controller
 
                 try {
                     // Stocker la nouvelle image
-                    $thumbnailPath = $thumbnail->storeAs('resources/thumbnails', $thumbnailName, 'public');
+                    $thumbnailPath = $thumbnail->storeAs('images/resources/thumbnails', $thumbnailName, Media::DISK);
 
                     // Sauvegarder l'ancien chemin
                     $oldThumbnailPath = $resource->thumbnail;
@@ -265,9 +266,7 @@ class ResourceController extends Controller
                     $data['thumbnail'] = $thumbnailPath;
 
                     // Supprimer l'ancienne image seulement après le succès
-                    if ($oldThumbnailPath && Storage::disk('public')->exists($oldThumbnailPath)) {
-                        Storage::disk('public')->delete($oldThumbnailPath);
-                    }
+                    Media::delete($oldThumbnailPath);
                 } catch (\Exception $e) {
                     return back()->withErrors(['thumbnail' => 'Erreur lors de l\'upload de l\'image.'])->withInput();
                 }
@@ -292,9 +291,7 @@ class ResourceController extends Controller
             Storage::disk('public')->delete($resource->file_path);
         }
 
-        if ($resource->thumbnail && Storage::disk('public')->exists($resource->thumbnail)) {
-            Storage::disk('public')->delete($resource->thumbnail);
-        }
+        Media::delete($resource->thumbnail);
 
         $resource->delete();
 
@@ -397,9 +394,7 @@ class ResourceController extends Controller
                     if ($resource->file_path && Storage::disk('public')->exists($resource->file_path)) {
                         Storage::disk('public')->delete($resource->file_path);
                     }
-                    if ($resource->thumbnail && Storage::disk('public')->exists($resource->thumbnail)) {
-                        Storage::disk('public')->delete($resource->thumbnail);
-                    }
+                    Media::delete($resource->thumbnail);
                 }
                 $resources->delete();
                 $message = count($request->resource_ids) . ' ressource(s) supprimée(s).';

@@ -57,7 +57,7 @@
             <div class=" col-md-6 mb-4">
                 <div class="card h-100 border-0 shadow-sm">
                     @if($project->featured_image)
-                    <img src="{{ asset('storage/' . $project->featured_image) }}" class="card-img-top" alt="{{ $project->title }}" style="height: 220px; object-fit: cover;">
+                    <img src="{{ media_url($project->featured_image) }}" class="card-img-top" alt="{{ $project->title }}" style="height: 220px; object-fit: cover;">
                     @else
                     <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 220px;">
                         <i class="fas fa-check-circle fa-3x text-success"></i>

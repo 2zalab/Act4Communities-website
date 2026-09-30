@@ -3,12 +3,15 @@
 
 @section('title', $post->title)
 @section('description', $post->excerpt)
+@if($post->featured_image)
+    @section('og_image', media_url($post->featured_image))
+@endif
 
 @push('styles')
 <style>
     .article-header {
         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                    url('{{ $post->featured_image ? asset("storage/" . $post->featured_image) : asset("images/default-article.jpg") }}');
+                    url('{{ media_url($post->featured_image, 'images/news-hero-bg.webp') }}');
         background-size: cover;
         background-position: center;
         min-height: 400px;
@@ -114,7 +117,7 @@
                         <div class="row">
                             @foreach($post->gallery as $image)
                             <div class="col-md-4 mb-3">
-                                <img src="{{ asset('storage/' . $image) }}"
+                                <img src="{{ media_url($image) }}"
                                      class="img-fluid rounded shadow"
                                      alt="Galerie {{ $post->title }}"
                                      data-bs-toggle="modal"
@@ -126,7 +129,7 @@
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-body p-0">
-                                                <img src="{{ asset('storage/' . $image) }}"
+                                                <img src="{{ media_url($image) }}"
                                                      class="img-fluid w-100"
                                                      alt="Galerie {{ $post->title }}">
                                             </div>
@@ -184,7 +187,7 @@
                         <div class="col-md-4 mb-4">
                             <div class="card h-100 border-0 shadow-sm">
                                 @if($related->featured_image)
-                                <img src="{{ asset('storage/' . $related->featured_image) }}"
+                                <img src="{{ media_url($related->featured_image) }}"
                                      class="card-img-top" alt="{{ $related->title }}"
                                      style="height: 150px; object-fit: cover;">
                                 @endif
@@ -253,7 +256,7 @@
                         @foreach($recentPosts as $recent)
                         <div class="d-flex mb-3 {{ !$loop->last ? 'pb-3 border-bottom' : '' }}">
                             @if($recent->featured_image)
-                            <img src="{{ asset('storage/' . $recent->featured_image) }}"
+                            <img src="{{ media_url($recent->featured_image) }}"
                                  class="me-3 rounded" alt="{{ $recent->title }}"
                                  style="width: 50px; height: 50px; object-fit: cover;">
                             @endif

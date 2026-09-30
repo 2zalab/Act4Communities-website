@@ -15,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Fonctions utilitaires globales (media_url, ...)
+        require_once app_path('helpers.php');
     }
 
     /**
@@ -40,9 +41,8 @@ class AppServiceProvider extends ServiceProvider
         // Partager les informations de contact
         View::composer(['frontend.layouts.app', 'frontend.partials.footer'], function ($view) {
             $contactInfo = [
-                'phones' => ['+237 694813985'],
-                'office' => '+237 682487583',
-                'email' => 'contact@act4communities.org',
+                'phones' => ['+237 694813985', '+237 698288072'],
+                'email' => 'contact@action4communities.org',
                 'address' => 'Garoua / Marouaré, Cameroun',
                 'social' => [
                     'facebook' => 'https://web.facebook.com/act4communities',
