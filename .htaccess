@@ -1,0 +1,36 @@
+# Redirections https commune-datcheka.com
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} !on
+RewriteCond %{HTTP_HOST} ^(?:www\.)?action4communities\.org(?:.*)$ [nc]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [redirect=301,L]
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+    # Redirections https action4communities.org
+     RewriteEngine On
+     RewriteRule (.*) /public/$1 [L]
+     RewriteCond %{HTTP:X-Forwarded-Proto} !https
+     RewriteCond %{HTTPS} !on
+     RewriteCond %{HTTP_HOST} ^(?:www\.)?action4communities\.org(?:.*)$ [nc]
+     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [redirect=301,L]
+
+    # Redirection vers le dossier public de Laravel
+    RewriteCond %{HTTP_HOST} ^action4communities\.org$ [NC]
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ /public/$1 [L]
+
+    # Rediriger /storage vers storage/app/public
+    RewriteCond %{REQUEST_URI} ^/storage/
+    RewriteRule ^storage/(.*)$ ../storage/app/public/$1 [L]
+
+    
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^build/(.*)$ public/build/$1 [L]
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+</IfModule>

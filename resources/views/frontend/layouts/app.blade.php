@@ -152,7 +152,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('posts*') ? 'active' : '' }}" href="{{ route('posts.index') }}">
-                            {{ __('Actualités') }}
+                            {{ __('Blog') }}
                         </a>
                     </li>
 
@@ -214,7 +214,8 @@
                     <div class="social-links">
                         <a href="{{ $contactInfo['social']['facebook'] }}" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="{{ $contactInfo['social']['linkedin'] }}" class="text-light me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="{{ $contactInfo['social']['twitter'] }}" class="text-light"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ $contactInfo['social']['twitter'] }}" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ $contactInfo['social']['instagram'] }}" class="text-light"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
@@ -224,7 +225,7 @@
                         <li><a href="{{ route('home') }}" class="text-light text-decoration-none">{{ __('Accueil') }}</a></li>
                         <li><a href="{{ route('about') }}" class="text-light text-decoration-none">{{ __('À propos') }}</a></li>
                         <li><a href="{{ route('projects.index') }}" class="text-light text-decoration-none">{{ __('Projets') }}</a></li>
-                        <li><a href="{{ route('posts.index') }}" class="text-light text-decoration-none">{{ __('Actualités') }}</a></li>
+                        <li><a href="{{ route('posts.index') }}" class="text-light text-decoration-none">{{ __('Blog') }}</a></li>
                     </ul>
                 </div>
 

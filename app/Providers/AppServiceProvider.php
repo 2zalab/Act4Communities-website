@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
                     'facebook' => 'https://web.facebook.com/act4communities',
                     'linkedin' => 'https://www.linkedin.com/in/action-pour-le-d%C3%A9veloppement-communautaire-295545210/',
                     'twitter' => 'https://x.com/ActionLe654',
-                    'instagral'=>'https://www.instagram.com/actforcommunities/',
+                    'instagram'=>'https://www.instagram.com/actforcommunities/',
                 ]
             ];
 
