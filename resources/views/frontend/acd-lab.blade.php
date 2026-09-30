@@ -1,7 +1,8 @@
 {{-- resources/views/frontend/acd-lab.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'ACD Lab - Act4Communities')
+@section('title', 'ACD Lab')
+@section('description', 'ACD Lab, le laboratoire d\'innovation d\'Action pour le Développement Communautaire (ADC) au service des communautés locales et autochtones.')
 
 @section('meta_description', 'ACD Lab est un espace de réflexion, de dialogue et de proposition pour des politiques publiques inclusives en matière de gouvernance des ressources naturelles, protection de l\'environnement, promotion et protection des droits humains et lutte contre les changements climatiques.')
 
@@ -261,7 +262,7 @@
                 </div>
 
                 <div class="cta-buttons">
-                    <a href="mailto:contact@act4communities.org" class="btn btn-primary btn-lg px-5 py-3 me-3">
+                    <a href="mailto:contact@action4communities.org" class="btn btn-primary btn-lg px-5 py-3 me-3">
                         <i class="fas fa-envelope me-2"></i>Contactez-nous
                     </a>
                     <a href="{{ route('resources.index') }}" class="btn btn-outline-primary btn-lg px-5 py-3">

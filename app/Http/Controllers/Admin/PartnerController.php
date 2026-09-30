@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Partner;
 use App\Models\PartnershipRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Support\Media;
 
 class PartnerController extends Controller
 {
@@ -42,7 +42,7 @@ class PartnerController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
-            $validated['logo'] = $request->file('logo')->store('partners', 'public');
+            $validated['logo'] = Media::store($request->file('logo'), 'partners');
         }
 
         $validated['is_active'] = $request->has('is_active');
@@ -73,9 +73,9 @@ class PartnerController extends Controller
 
         if ($request->hasFile('logo')) {
             if ($partner->logo) {
-                Storage::disk('public')->delete($partner->logo);
+                Media::delete($partner->logo);
             }
-            $validated['logo'] = $request->file('logo')->store('partners', 'public');
+            $validated['logo'] = Media::store($request->file('logo'), 'partners');
         }
 
         $validated['is_active'] = $request->has('is_active');
@@ -89,7 +89,7 @@ class PartnerController extends Controller
     public function destroy(Partner $partner)
     {
         if ($partner->logo) {
-            Storage::disk('public')->delete($partner->logo);
+            Media::delete($partner->logo);
         }
 
         $partner->delete();

@@ -34,7 +34,7 @@
                 <label for="featured_image" class="form-label">Image mise en avant</label>
                 <input type="file" class="form-control" id="featured_image" name="featured_image">
                 @if($post->featured_image)
-                    <img src="{{ asset('storage/' . $post->featured_image) }}" alt="Featured Image" class="mt-2" style="max-width: 200px;">
+                    <img src="{{ media_url($post->featured_image) }}" alt="Featured Image" class="mt-2" style="max-width: 200px;">
                 @endif
             </div>
             <div class="mb-3">

@@ -76,7 +76,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 @if($project->featured_image)
-                                <img src="{{ asset('storage/' . $project->featured_image) }}"
+                                <img src="{{ media_url($project->featured_image) }}"
                                      class="me-3 rounded" width="50" height="50" style="object-fit: cover;">
                                 @endif
                                 <div>

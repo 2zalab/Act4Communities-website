@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-3 col-6 mb-3">
                         <div class="stat-card">
-                            <h3 class="display-6 fw-bold text-warning">6+</h3>
+                            <h3 class="display-6 fw-bold text-warning">7</h3>
                             <p class="mb-0">{{ __('Domaines d\'intervention') }}</p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                     <span class="section-badge text-uppercase text-primary fw-bold">{{ __('Notre Histoire') }}</span>
                     <h2 class="display-5 fw-bold text-dark mb-4">{{ __('Genèse') }}</h2>
                     <p class="lead text-muted mb-4">
-                        {{ __('Des jeunes portés par le désir profond d\'apporter le changement positif en matière de promotion et protection des droits humains et gouvernance se sont réunis en mars 2019.') }}
+                        {{ __('Des jeunes portés par le désir profond d\'apporter des changements positifs en matière de promotion et protection des droits humains et gouvernance se sont réunis en mars 2019 et ont créé l\'association Action pour le Développement Communautaire (ADC) (en anglais Action for Community Development-ACD).') }}
                     </p>
                     <div class="timeline-item mb-4">
                         <div class="timeline-marker bg-primary"></div>
@@ -137,43 +137,24 @@
         <div class="text-center mb-5">
             <span class="section-badge text-uppercase text-primary fw-bold">{{ __('Nos Expertises') }}</span>
             <h2 class="display-5 fw-bold text-dark mb-4">{{ __('Domaines d\'Intervention') }}</h2>
-            <p class="lead text-muted">{{ __('Six domaines clés pour un développement durable et inclusif') }}</p>
+            <p class="lead text-muted">{{ __('Sept domaines clés pour un développement durable et inclusif') }}</p>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
                     <div class="domain-image">
-                        <img src="{{ asset('images/droit.png') }}" alt="Droits Humains" class="img-fluid">
-                        <div class="domain-overlay">
-                            <i class="fas fa-balance-scale fa-2x"></i>
-                        </div>
-                    </div>
-                    <div class="domain-content p-4">
-                        <h5 class="fw-bold mb-3">{{ __('Droits Humains & Genre') }}</h5>
-                        <p class="text-muted mb-3">{{ __('Promotion et protection des droits humains avec un focus sur l\'égalité des genres.') }}</p>
-                        <div class="domain-features">
-                            <small class="badge bg-light text-dark me-1">{{ __('Droits humains') }}</small>
-                            <small class="badge bg-light text-dark">{{ __('Égalité genre') }}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
-                    <div class="domain-image">
-                        <img src="{{ asset('images/gouvernance.png') }}" alt="Gouvernance" class="img-fluid">
+                        <img src="{{ asset('images/gouvernance.png') }}" alt="{{ __('Gouvernance et gestion durable et inclusives des ressources naturelles') }}" class="img-fluid" loading="lazy">
                         <div class="domain-overlay">
                             <i class="fas fa-gavel fa-2x"></i>
                         </div>
                     </div>
                     <div class="domain-content p-4">
-                        <h5 class="fw-bold mb-3">{{ __('Gouvernance & Ressources') }}</h5>
-                        <p class="text-muted mb-3">{{ __('Gouvernance et gestion durable et inclusive des ressources naturelles.') }}</p>
+                        <h5 class="fw-bold mb-3">{{ __('Gouvernance et gestion durable et inclusives des ressources naturelles') }}</h5>
+                        <p class="text-muted mb-3">{{ __('Promotion d\'une gouvernance transparente et d\'une gestion durable et inclusive des ressources naturelles.') }}</p>
                         <div class="domain-features">
                             <small class="badge bg-light text-dark me-1">{{ __('Gouvernance') }}</small>
-                            <small class="badge bg-light text-dark">{{ __('Ressources') }}</small>
+                            <small class="badge bg-light text-dark">{{ __('Ressources naturelles') }}</small>
                         </div>
                     </div>
                 </div>
@@ -182,14 +163,33 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
                     <div class="domain-image">
-                        <img src="{{ asset('images/climat.jpg') }}" alt="Climat" class="img-fluid">
+                        <img src="{{ asset('images/droit.png') }}" alt="{{ __('Promotion des droits humains et du genre') }}" class="img-fluid" loading="lazy">
+                        <div class="domain-overlay">
+                            <i class="fas fa-balance-scale fa-2x"></i>
+                        </div>
+                    </div>
+                    <div class="domain-content p-4">
+                        <h5 class="fw-bold mb-3">{{ __('Promotion des droits humains et du genre') }}</h5>
+                        <p class="text-muted mb-3">{{ __('Promotion et protection des droits humains avec un accent sur l\'égalité entre les femmes et les hommes.') }}</p>
+                        <div class="domain-features">
+                            <small class="badge bg-light text-dark me-1">{{ __('Droits humains') }}</small>
+                            <small class="badge bg-light text-dark">{{ __('Égalité de genre') }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
+                    <div class="domain-image">
+                        <img src="{{ asset('images/climat.jpg') }}" alt="{{ __('Lutte contre les changements climatiques') }}" class="img-fluid" loading="lazy">
                         <div class="domain-overlay">
                             <i class="fas fa-thermometer-half fa-2x"></i>
                         </div>
                     </div>
                     <div class="domain-content p-4">
-                        <h5 class="fw-bold mb-3">{{ __('Changements Climatiques') }}</h5>
-                        <p class="text-muted mb-3">{{ __('Lutte contre le changement climatique et promotion de l\'efficacité énergétique.') }}</p>
+                        <h5 class="fw-bold mb-3">{{ __('Lutte contre les changements climatiques') }}</h5>
+                        <p class="text-muted mb-3">{{ __('Atténuation et adaptation aux changements climatiques, promotion de l\'efficacité énergétique.') }}</p>
                         <div class="domain-features">
                             <small class="badge bg-light text-dark me-1">{{ __('Climat') }}</small>
                             <small class="badge bg-light text-dark">{{ __('Énergie') }}</small>
@@ -201,14 +201,14 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
                     <div class="domain-image">
-                        <img src="{{ asset('images/bio.jpg') }}" alt="Biodiversité" class="img-fluid">
+                        <img src="{{ asset('images/bio.jpg') }}" alt="{{ __('Protection de l\'environnement') }}" class="img-fluid" loading="lazy">
                         <div class="domain-overlay">
                             <i class="fas fa-leaf fa-2x"></i>
                         </div>
                     </div>
                     <div class="domain-content p-4">
-                        <h5 class="fw-bold mb-3">{{ __('Biodiversité') }}</h5>
-                        <p class="text-muted mb-3">{{ __('Protection de la biodiversité et des services écosystémiques.') }}</p>
+                        <h5 class="fw-bold mb-3">{{ __('Protection de l\'environnement') }}</h5>
+                        <p class="text-muted mb-3">{{ __('Protection de la biodiversité, des écosystèmes et du cadre de vie des communautés.') }}</p>
                         <div class="domain-features">
                             <small class="badge bg-light text-dark me-1">{{ __('Biodiversité') }}</small>
                             <small class="badge bg-light text-dark">{{ __('Écosystèmes') }}</small>
@@ -220,14 +220,35 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
                     <div class="domain-image">
-                        <img src="{{ asset('images/eau.jpg') }}" alt="Eau" class="img-fluid">
+                        <div class="domain-image-placeholder">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="domain-overlay">
+                            <i class="fas fa-seedling fa-2x"></i>
+                        </div>
+                    </div>
+                    <div class="domain-content p-4">
+                        <h5 class="fw-bold mb-3">{{ __('Souveraineté et sécurité alimentaires') }}</h5>
+                        <p class="text-muted mb-3">{{ __('Appui à une agriculture durable et à l\'accès de tous à une alimentation suffisante et saine.') }}</p>
+                        <div class="domain-features">
+                            <small class="badge bg-light text-dark me-1">{{ __('Agriculture durable') }}</small>
+                            <small class="badge bg-light text-dark">{{ __('Alimentation') }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
+                    <div class="domain-image">
+                        <img src="{{ asset('images/eau.jpg') }}" alt="{{ __('Eau, Hygiène et Assainissement') }}" class="img-fluid" loading="lazy">
                         <div class="domain-overlay">
                             <i class="fas fa-tint fa-2x"></i>
                         </div>
                     </div>
                     <div class="domain-content p-4">
-                        <h5 class="fw-bold mb-3">{{ __('Eau & Assainissement') }}</h5>
-                        <p class="text-muted mb-3">{{ __('Accès à l\'eau potable, hygiène et assainissement pour tous.') }}</p>
+                        <h5 class="fw-bold mb-3">{{ __('Eau, Hygiène et Assainissement') }}</h5>
+                        <p class="text-muted mb-3">{{ __('Accès à l\'eau potable, à l\'hygiène et à l\'assainissement pour tous.') }}</p>
                         <div class="domain-features">
                             <small class="badge bg-light text-dark me-1">{{ __('Eau potable') }}</small>
                             <small class="badge bg-light text-dark">{{ __('Hygiène') }}</small>
@@ -239,14 +260,14 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="domain-card h-100 rounded-4 overflow-hidden shadow-sm bg-white">
                     <div class="domain-image">
-                        <img src="{{ asset('images/risque.png') }}" alt="Risques" class="img-fluid">
+                        <img src="{{ asset('images/risque.png') }}" alt="{{ __('Réduction des risques de catastrophes') }}" class="img-fluid" loading="lazy">
                         <div class="domain-overlay">
                             <i class="fas fa-shield-alt fa-2x"></i>
                         </div>
                     </div>
                     <div class="domain-content p-4">
-                        <h5 class="fw-bold mb-3">{{ __('Gestion des Risques') }}</h5>
-                        <p class="text-muted mb-3">{{ __('Réduction des risques de catastrophes et renforcement de la résilience.') }}</p>
+                        <h5 class="fw-bold mb-3">{{ __('Réduction des risques de catastrophes') }}</h5>
+                        <p class="text-muted mb-3">{{ __('Prévention des catastrophes et renforcement de la résilience des communautés.') }}</p>
                         <div class="domain-features">
                             <small class="badge bg-light text-dark me-1">{{ __('Prévention') }}</small>
                             <small class="badge bg-light text-dark">{{ __('Résilience') }}</small>
@@ -328,7 +349,7 @@
                         <div class="method-card mb-4">
                             <div class="method-header">
                                 <i class="fas fa-bullhorn text-info"></i>
-                                <h6 class="fw-bold">{{ __('Information & Sensibilisation') }}</h6>
+                                <h6 class="fw-bold">{{ __('Information et Sensibilisation') }}</h6>
                             </div>
                             <p class="text-muted small">{{ __('Éducation et sensibilisation des communautés') }}</p>
                         </div>
@@ -520,6 +541,17 @@
 
 .domain-card:hover .domain-image img {
     transform: scale(1.1);
+}
+
+.domain-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #059669, #F59E0B);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 4rem;
 }
 
 .domain-overlay {

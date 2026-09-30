@@ -152,7 +152,7 @@
                 <div class="project-card-featured h-100">
                     <div class="project-image-container">
                         @if($project->featured_image)
-                        <img src="{{ asset('storage/' . $project->featured_image) }}"
+                        <img src="{{ media_url($project->featured_image) }}"
                              class="project-image" alt="{{ $project->title }}">
                         @else
                         <div class="project-image-placeholder">
@@ -256,7 +256,7 @@
                     <div class="project-card h-100">
                         <div class="project-image-container">
                             @if($project->featured_image)
-                            <img src="{{ asset('storage/' . $project->featured_image) }}"
+                            <img src="{{ media_url($project->featured_image) }}"
                                  class="project-image" alt="{{ $project->title }}">
                             @else
                             <div class="project-image-placeholder">

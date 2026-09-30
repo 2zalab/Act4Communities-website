@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Support\Media;
 
 class MediaFile extends Model
 {
@@ -26,7 +27,7 @@ class MediaFile extends Model
 
     public function getUrlAttribute()
     {
-        return asset('storage/' . $this->path);
+        return Media::url($this->path);
     }
 
     public function getFormattedSizeAttribute()

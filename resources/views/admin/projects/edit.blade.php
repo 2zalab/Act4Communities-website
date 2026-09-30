@@ -126,7 +126,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                         @if($project->featured_image)
-                            <img src="{{ asset('storage/' . $project->featured_image) }}" alt="Image actuelle" class="img-fluid mt-2" style="max-height: 200px;">
+                            <img src="{{ media_url($project->featured_image) }}" alt="Image actuelle" class="img-fluid mt-2" style="max-height: 200px;">
                         @endif
                     </div>
 

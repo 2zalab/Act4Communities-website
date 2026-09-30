@@ -6,11 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Accueil') - {{ config('app.name') }}</title>
-    <meta name="description" content="@yield('description', 'Action pour le Développement Communautaire - ONG camerounaise défendant les droits des communautés locales')">
+    {{-- Les valeurs de @section('title'/'description', ...) sont déjà échappées par Blade --}}
+    @php
+        $siteName = 'Action pour le Développement Communautaire (ADC)';
+        $pageTitle = trim($__env->yieldContent('title', 'Accueil'));
+        $pageDescription = trim($__env->yieldContent('description', 'Action pour le Développement Communautaire (ADC) est une organisation de la société civile camerounaise qui promeut la gouvernance et la gestion durable des ressources naturelles, les droits des communautés locales et autochtones et la protection de l\'environnement.'));
+        $pageImage = trim($__env->yieldContent('og_image', asset('images/logo-favicon.png')));
+    @endphp
+    <title>{!! $pageTitle !!} - {{ $siteName }}</title>
+    <meta name="description" content="{!! $pageDescription !!}">
+    <link rel="canonical" href="{{ url()->current() }}">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
+    <!-- Favicon (logo ADC dans l'onglet du navigateur) -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('favicon-192x192.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    <meta name="theme-color" content="#059669">
+
+    <!-- Open Graph / réseaux sociaux -->
+    <meta property="og:site_name" content="{{ $siteName }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ app()->getLocale() === 'en' ? 'en_US' : 'fr_FR' }}">
+    <meta property="og:title" content="{!! $pageTitle !!} - {{ $siteName }}">
+    <meta property="og:description" content="{!! $pageDescription !!}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{!! $pageImage !!}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{!! $pageTitle !!} - {{ $siteName }}">
+    <meta name="twitter:description" content="{!! $pageDescription !!}">
+    <meta name="twitter:image" content="{!! $pageImage !!}">
+
+    <!-- Données structurées : aident Google à afficher le nom, le logo et les liens du site -->
+    <script type="application/ld+json">
+    {!! json_encode([
+        '@context' => 'https://schema.org',
+        '@graph' => [
+            [
+                '@type' => 'NGO',
+                '@id' => url('/') . '#organization',
+                'name' => 'Action pour le Développement Communautaire',
+                'alternateName' => ['ADC', 'Action for Community Development', 'ACD'],
+                'url' => url('/'),
+                'logo' => asset('images/logo-favicon.png'),
+                'email' => $contactInfo['email'],
+                'telephone' => $contactInfo['phones'][0],
+                'foundingDate' => '2019-03',
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'addressLocality' => 'Garoua',
+                    'addressCountry' => 'CM',
+                ],
+                'sameAs' => array_values($contactInfo['social']),
+            ],
+            [
+                '@type' => 'WebSite',
+                '@id' => url('/') . '#website',
+                'name' => 'Action pour le Développement Communautaire (ADC)',
+                'alternateName' => 'Action for Community Development',
+                'url' => url('/'),
+                'inLanguage' => ['fr', 'en'],
+                'publisher' => ['@id' => url('/') . '#organization'],
+            ],
+        ],
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -118,7 +178,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container-fluid px-5">
             <a class="navbar-brand fw-bold" href="{{ route('home') }}">
-                <img src="{{ asset('images/act-logo.png') }}" alt="Act for Communities" height="45">
+                <img src="{{ asset('images/act-logo.png') }}" alt="Action pour le Développement Communautaire (ADC)" height="45">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -158,7 +218,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('resources*') ? 'active' : '' }}" href="{{ route('resources.index') }}">
-                            {{ __('Resources') }}
+                            {{ __('Ressources') }}
                         </a>
                     </li>
 
@@ -206,20 +266,7 @@
     <footer class="footer mt-5">
         <div class="container-fluid px-5">
             <div class="row">
-                <div class="col-lg-5 mb-4 px-4">
-                    <h5 class="fw-bold mb-3">Action for Community Development</h5>
-                    <p class="text-light">
-                        Action pour le Développement Communautaire (ADC) est une OSC camerounaise défendant les droits des communautés locales et autochtones.
-                    </p>
-                    <div class="social-links">
-                        <a href="{{ $contactInfo['social']['facebook'] }}" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{ $contactInfo['social']['linkedin'] }}" class="text-light me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="{{ $contactInfo['social']['twitter'] }}" class="text-light me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="{{ $contactInfo['social']['instagram'] }}" class="text-light"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-md-6 mb-4">
                     <h6 class="fw-bold mb-3">{{ __('Liens rapides') }}</h6>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('home') }}" class="text-light text-decoration-none">{{ __('Accueil') }}</a></li>
@@ -229,30 +276,17 @@
                     </ul>
                 </div>
 
-                <!--div class="col-lg-3 col-md-6 mb-4">
-                    <h6 class="fw-bold mb-3">{{ __('Nos domaines') }}</h6>
-                    <ul class="list-unstyled">
-                        <li class="text-light">Agriculture durable</li>
-                        <li class="text-light">Autonomisation femme/jeunesse</li>
-                        <li class="text-light">Protection environnement</li>
-                        <li class="text-light">Gouvernance</li>
-                    </ul>
-                </div-->
-
-                <div class="col-lg-4 mb-4">
+                <div class="col-md-6 mb-4">
                     <h6 class="fw-bold mb-3">{{ __('Contact') }}</h6>
                     <div class="contact-info text-light">
+                        <div class="mb-2 fw-semibold">Action for Community Development</div>
+                        <div class="mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:{{ $contactInfo['email'] }}" class="text-light text-decoration-none">{{ $contactInfo['email'] }}</a>
+                        </div>
                         <div class="mb-2">
                             <i class="fas fa-phone me-2"></i>
                             {{ implode(' / ', $contactInfo['phones']) }}
-                        </div>
-                        <div class="mb-2">
-                            <i class="fas fa-phone-alt me-2"></i>
-                            {{ $contactInfo['office'] }}
-                        </div>
-                        <div class="mb-2">
-                            <i class="fas fa-envelope me-2"></i>
-                            {{ $contactInfo['email'] }}
                         </div>
                         <div>
                             <i class="fas fa-map-marker-alt me-2"></i>

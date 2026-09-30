@@ -96,7 +96,7 @@
                         <label for="logo" class="form-label">Logo</label>
                         @if($partner->logo)
                         <div class="mb-2">
-                            <img src="{{ Storage::url($partner->logo) }}"
+                            <img src="{{ $partner->logo_url }}"
                                  alt="{{ $partner->name }}"
                                  class="img-thumbnail"
                                  style="max-width: 150px;"

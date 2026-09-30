@@ -3,6 +3,9 @@
 
 @section('title', $project->title)
 @section('description', $project->excerpt)
+@if($project->featured_image)
+    @section('og_image', media_url($project->featured_image))
+@endif
 
 @push('styles')
 <style>
@@ -24,7 +27,7 @@
 
     .project-header {
         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                    url('{{ $project->featured_image ? asset("storage/" . $project->featured_image) : asset("images/default-project.jpg") }}');
+                    url('{{ media_url($project->featured_image, 'images/hero-slide-1.jpg') }}');
         background-size: cover;
         background-position: center;
         min-height: 450px;
@@ -520,7 +523,7 @@
                         <div class="gallery-grid">
                             @foreach($project->gallery as $index => $image)
                             <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal{{ $index }}">
-                                <img src="{{ asset('storage/' . $image) }}" alt="Galerie {{ $project->title }}" class="img-fluid">
+                                <img src="{{ media_url($image) }}" alt="Galerie {{ $project->title }}" class="img-fluid">
                                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
                                      style="background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s;">
                                     <i class="fas fa-search-plus fa-2x text-white"></i>
@@ -535,7 +538,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                         </div>
                                         <div class="modal-body p-0">
-                                            <img src="{{ asset('storage/' . $image) }}" class="img-fluid w-100" alt="Galerie {{ $project->title }}">
+                                            <img src="{{ media_url($image) }}" class="img-fluid w-100" alt="Galerie {{ $project->title }}">
                                         </div>
                                     </div>
                                 </div>
@@ -659,7 +662,7 @@
                         <a href="{{ route('projects.show', $related->slug) }}" class="related-project-item">
                             <div class="d-flex align-items-start">
                                 @if($related->featured_image)
-                                <img src="{{ asset('storage/' . $related->featured_image) }}"
+                                <img src="{{ media_url($related->featured_image) }}"
                                      class="me-3 rounded" width="60" height="60" style="object-fit: cover;">
                                 @endif
                                 <div class="flex-grow-1">

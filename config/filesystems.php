@@ -44,6 +44,16 @@ return [
             'throw' => false,
         ],
 
+        // Images téléversées : enregistrées directement dans public/images
+        // (aucun lien symbolique "storage" nécessaire, compatible hébergement mutualisé LWS)
+        'uploads' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

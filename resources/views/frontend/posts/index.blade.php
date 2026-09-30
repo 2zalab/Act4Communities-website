@@ -140,7 +140,7 @@
                     <div class="col-md-8 mb-4">
                         <article class="card h-100 border-0 shadow">
                             @if($post->featured_image)
-                            <img src="{{ asset('storage/' . $post->featured_image) }}"
+                            <img src="{{ media_url($post->featured_image) }}"
                                  class="card-img-top" alt="{{ $post->title }}"
                                  style="height: 200px; object-fit: cover;">
                             @endif
@@ -190,7 +190,7 @@
                     <div class="col-md-6 mb-4">
                         <article class="card h-100 border-0 shadow-sm">
                             @if($post->featured_image)
-                            <img src="{{ asset('storage/' . $post->featured_image) }}"
+                            <img src="{{ media_url($post->featured_image) }}"
                                  class="card-img-top" alt="{{ $post->title }}"
                                  style="height: 200px; object-fit: cover;">
                             @endif
@@ -266,7 +266,7 @@
                     @foreach($recentPosts as $recent)
                     <div class="d-flex mb-3 {{ !$loop->last ? 'pb-3 border-bottom' : '' }}">
                         @if($recent->featured_image)
-                        <img src="{{ asset('storage/' . $recent->featured_image) }}"
+                        <img src="{{ media_url($recent->featured_image) }}"
                              class="me-3 rounded" alt="{{ $recent->title }}"
                              style="width: 60px; height: 60px; object-fit: cover;">
                         @endif
