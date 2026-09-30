@@ -8,6 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
+        // La table peut déjà exister (créée avant l'enregistrement de cette migration)
+        if (Schema::hasTable('resources')) {
+            return;
+        }
+
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->string('title');

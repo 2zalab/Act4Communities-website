@@ -15,10 +15,20 @@ $app = require_once __DIR__ . '/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
 
-\Artisan::call('migrate', ['--force' => true]);
-
 echo "<pre>";
-echo "✅ Commande exécutée : php artisan migrate --force\n\n";
-echo htmlspecialchars(\Artisan::output());
-echo "\n⚠️ Pensez à supprimer ce fichier (public/run_migrations.php) du serveur.";
+
+try {
+    echo "État avant :\n";
+    \Artisan::call('migrate:status');
+    echo htmlspecialchars(\Artisan::output()) . "\n";
+
+    \Artisan::call('migrate', ['--force' => true]);
+    echo "✅ Commande exécutée : php artisan migrate --force\n\n";
+    echo htmlspecialchars(\Artisan::output());
+} catch (\Throwable $e) {
+    echo "❌ Erreur : " . htmlspecialchars($e->getMessage()) . "\n\n";
+    echo htmlspecialchars($e->getFile() . ':' . $e->getLine());
+}
+
+echo "\n\n⚠️ Pensez à supprimer ce fichier (public/run_migrations.php) du serveur.";
 echo "</pre>";
