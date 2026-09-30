@@ -164,6 +164,13 @@
                     </div>
                 </div>
             </div>
+            @include('admin.partials.translations', ['model' => null, 'fields' => [
+                'title' => ['label' => 'Titre', 'type' => 'text'],
+                'description' => ['label' => 'Description', 'type' => 'textarea', 'rows' => 3],
+                'content' => ['label' => 'Contenu détaillé', 'type' => 'textarea', 'rows' => 8],
+                'meta_title' => ['label' => 'Titre SEO', 'type' => 'text'],
+                'meta_description' => ['label' => 'Description SEO', 'type' => 'textarea', 'rows' => 3],
+            ]])
         </div>
 
         <!-- Sidebar -->

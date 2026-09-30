@@ -164,6 +164,11 @@
                 </div>
             </div>
 
+            @include('admin.partials.translations', ['model' => $resourceCategory, 'fields' => [
+                    'name' => ['label' => 'Nom', 'type' => 'text'],
+                    'description' => ['label' => 'Description', 'type' => 'textarea', 'rows' => 3],
+                ]])
+
             <!-- Actions -->
             <div class="card mt-4">
                 <div class="card-body">

@@ -196,6 +196,15 @@
                         </label>
                     </div>
 
+                    @include('admin.partials.translations', ['model' => $project, 'fields' => [
+                            'title' => ['label' => 'Titre', 'type' => 'text'],
+                            'excerpt' => ['label' => 'Résumé', 'type' => 'textarea', 'rows' => 3],
+                            'description' => ['label' => 'Description complète', 'type' => 'textarea', 'rows' => 8],
+                            'location' => ['label' => 'Localisation', 'type' => 'text'],
+                            'objectives' => ['label' => 'Objectifs', 'type' => 'lines', 'rows' => 4],
+                            'expected_results' => ['label' => 'Résultats attendus', 'type' => 'lines', 'rows' => 4],
+                        ]])
+
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-save me-1"></i>Enregistrer les modifications

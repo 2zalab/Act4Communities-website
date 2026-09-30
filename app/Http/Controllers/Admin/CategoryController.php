@@ -33,7 +33,7 @@ class CategoryController extends Controller
         $validated['slug'] = Str::slug($validated['name']);
         $validated['is_active'] = $request->has('is_active');
 
-        Category::create($validated);
+        (new Category($validated))->fillTranslationsFromRequest($request)->save();
 
         return redirect()->route('admin.categories.index')
                         ->with('success', 'Catégorie créée avec succès.');
@@ -57,7 +57,7 @@ class CategoryController extends Controller
         $validated['slug'] = Str::slug($validated['name']);
         $validated['is_active'] = $request->has('is_active');
 
-        $category->update($validated);
+        $category->fill($validated)->fillTranslationsFromRequest($request)->save();
 
         return redirect()->route('admin.categories.index')
                         ->with('success', 'Catégorie mise à jour avec succès.');

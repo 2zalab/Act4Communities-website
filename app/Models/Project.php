@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasTranslations;
 use Illuminate\Support\Str;
 
 class Project extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+
+    /** Champs traduisibles (version anglaise dans la colonne translations) */
+    protected $translatable = ['title', 'excerpt', 'description', 'location', 'objectives', 'expected_results'];
 
     protected $fillable = [
         'title', 'slug', 'excerpt', 'description', 'featured_image',

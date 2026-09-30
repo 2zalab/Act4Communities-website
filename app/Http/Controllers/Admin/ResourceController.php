@@ -136,7 +136,7 @@ class ResourceController extends Controller
         }
 
         try {
-            Resource::create($data);
+            (new Resource($data))->fillTranslationsFromRequest($request)->save();
 
             $redirectTo = $request->has('save_and_continue')
                 ? route('admin.resources.edit', Resource::latest()->first())
@@ -274,7 +274,7 @@ class ResourceController extends Controller
         }
 
         try {
-            $resource->update($data);
+            $resource->fill($data)->fillTranslationsFromRequest($request)->save();
             return redirect()->route('admin.resources.index')->with('success', 'Ressource mise à jour avec succès.');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => 'Erreur lors de la mise à jour de la ressource.'])->withInput();

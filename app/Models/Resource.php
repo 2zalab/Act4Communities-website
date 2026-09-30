@@ -4,13 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasTranslations;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Support\Media;
 
 class Resource extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+
+    /** Champs traduisibles (version anglaise dans la colonne translations) */
+    protected $translatable = ['title', 'description', 'content', 'meta_title', 'meta_description'];
 
     protected $fillable = [
         'title',
@@ -29,7 +33,7 @@ class Resource extends Model
         'download_count',
         'sort_order',
         'meta_title',
-        'meta_description',
+        'meta_description', 'translations'
     ];
 
     protected $casts = [

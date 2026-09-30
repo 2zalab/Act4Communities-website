@@ -47,7 +47,7 @@ class PostController extends Controller
             $validated['published_at'] = now();
         }
 
-        Post::create($validated);
+        (new Post($validated))->fillTranslationsFromRequest($request)->save();
 
         return redirect()->route('admin.posts.index')
                         ->with('success', 'Article créé avec succès.');
@@ -80,7 +80,7 @@ class PostController extends Controller
             $validated['featured_image'] = $this->uploadImage($request->file('featured_image'), 'posts');
         }
 
-        $post->update($validated);
+        $post->fill($validated)->fillTranslationsFromRequest($request)->save();
 
         return redirect()->route('admin.posts.index')
                         ->with('success', 'Article mis à jour avec succès.');
