@@ -274,6 +274,20 @@
             background: linear-gradient(135deg, #ef4444, #dc2626);
             color: white;
         }
+        /* Formulaires bilingues : champ français (FR) à gauche, anglais (EN) à droite */
+        .lang-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            vertical-align: middle;
+        }
+        .lang-badge-fr { background-color: #1d4ed8; color: #fff; }
+        .lang-badge-en { background-color: #b91c1c; color: #fff; }
+        @media (min-width: 768px) {
+            .bilingual-row > .col-md-6 + .col-md-6 {
+                border-left: 2px dashed #e5e7eb;
+            }
+        }
     </style>
 
     @stack('styles')

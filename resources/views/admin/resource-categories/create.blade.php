@@ -31,13 +31,20 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nom <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" 
-                                       id="name" name="name" value="{{ old('name') }}" required>
-                                @error('name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                            <div class="row bilingual-row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Nom <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" 
+                                               id="name" name="name" value="{{ old('name') }}" required>
+                                        @error('name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    @include('admin.partials.translation-field', ['model' => null, 'field' => 'name', 'label' => 'Nom', 'type' => 'text'])
+                                </div>
                             </div>
                         </div>
                         
@@ -54,14 +61,21 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" 
-                                  id="description" name="description" rows="3" 
-                                  placeholder="Description de la catégorie">{{ old('description') }}</textarea>
-                        @error('description')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row bilingual-row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description" class="form-label"><span class="badge lang-badge lang-badge-fr me-1">FR</span>Description</label>
+                                <textarea class="form-control @error('description') is-invalid @enderror" 
+                                          id="description" name="description" rows="3" 
+                                          placeholder="Description de la catégorie">{{ old('description') }}</textarea>
+                                @error('description')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @include('admin.partials.translation-field', ['model' => null, 'field' => 'description', 'label' => 'Description', 'type' => 'textarea', 'rows' => 3])
+                        </div>
                     </div>
 
                     <div class="row">
@@ -155,10 +169,6 @@
                 </div>
             </div>
 
-            @include('admin.partials.translations', ['model' => null, 'fields' => [
-                    'name' => ['label' => 'Nom', 'type' => 'text'],
-                    'description' => ['label' => 'Description', 'type' => 'textarea', 'rows' => 3],
-                ]])
 
             <!-- Actions -->
             <div class="card mt-4">

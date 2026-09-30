@@ -104,17 +104,20 @@ class ContentTranslationTest extends TestCase
         $project = Project::create(['title' => 'P', 'excerpt' => 'E', 'description' => 'D', 'category_id' => $category->id, 'status' => 'active']);
         $post = Post::create(['title' => 'A', 'excerpt' => 'E', 'content' => 'C', 'category_id' => $category->id, 'user_id' => User::first()->id]);
         $resourceCategory = \App\Models\ResourceCategory::create(['name' => 'Guides', 'slug' => 'guides']);
+        $resource = \App\Models\Resource::create(['title' => 'Guide', 'slug' => 'guide', 'category_id' => $resourceCategory->id, 'file_path' => 'resources/files/guide.pdf']);
 
         $urls = [
             route('admin.projects.create'), route('admin.projects.edit', $project),
             route('admin.posts.create'), route('admin.posts.edit', $post),
             route('admin.categories.create'), route('admin.categories.edit', $category),
-            route('admin.resources.create'),
+            route('admin.resources.create'), route('admin.resources.edit', $resource),
             route('admin.resource-categories.create'), route('admin.resource-categories.edit', $resourceCategory),
         ];
 
         foreach ($urls as $url) {
-            $this->get($url)->assertOk()->assertSee('Version anglaise (English)');
+            $this->get($url)->assertOk()
+                ->assertSee('lang-badge-fr', false)
+                ->assertSee('name="translations[en][', false);
         }
     }
 }
