@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/projects/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Nos projets')
-@section('description', 'Découvrez tous les projets d\'Act for Communities dans les domaines de l\'agriculture durable, l\'environnement, la gouvernance et l\'autonomisation')
+@section('title', __('Nos projets'))
+@section('description', __('Découvrez tous les projets d\'Act for Communities dans les domaines de l\'agriculture durable, l\'environnement, la gouvernance et l\'autonomisation'))
 
 @section('content')
 <!-- Hero Section -->
@@ -123,7 +123,7 @@
                 @endif
                 @if(request('status') && request('status') != 'all')
                     <span class="filter-tag">
-                        <i class="fas fa-flag me-1"></i>{{ __(ucfirst(request('status'))) }}
+                        <i class="fas fa-flag me-1"></i>{{ __(['active' => 'En cours', 'completed' => 'Terminé', 'suspended' => 'Suspendu'][request('status')] ?? ucfirst(request('status'))) }}
                         <a href="{{ route('projects.index', array_merge(request()->except('status'), [])) }}" class="remove-filter">×</a>
                     </span>
                 @endif
@@ -189,7 +189,7 @@
                             @if($project->start_date)
                             <div class="meta-item">
                                 <i class="fas fa-calendar-alt text-info"></i>
-                                <span>{{ $project->start_date->format('M Y') }}</span>
+                                <span>{{ $project->start_date->translatedFormat('M Y') }}</span>
                             </div>
                             @endif
                         </div>
@@ -299,9 +299,9 @@
                                 <div class="meta-item">
                                     <i class="fas fa-calendar-alt text-info"></i>
                                     <span>
-                                        {{ $project->start_date->format('M Y') }}
+                                        {{ $project->start_date->translatedFormat('M Y') }}
                                         @if($project->end_date)
-                                        - {{ $project->end_date->format('M Y') }}
+                                        - {{ $project->end_date->translatedFormat('M Y') }}
                                         @endif
                                     </span>
                                 </div>

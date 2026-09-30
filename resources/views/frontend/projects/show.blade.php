@@ -428,7 +428,7 @@
                                         <h5 class="text-primary">{{ __('Lancement du projet') }}</h5>
                                         <p class="mb-0">{{ __('Début officiel des activités du projet') }}</p>
                                     </div>
-                                    <span class="badge bg-primary">{{ $project->start_date->format('M Y') }}</span>
+                                    <span class="badge bg-primary">{{ $project->start_date->translatedFormat('M Y') }}</span>
                                 </div>
                             </div>
                             @endif
@@ -455,7 +455,7 @@
                                         <p class="mb-0">{{ __('Clôture et évaluation finale') }}</p>
                                     </div>
                                     <span class="badge {{ $project->status == 'completed' ? 'bg-success' : 'bg-secondary' }}">
-                                        {{ $project->end_date->format('M Y') }}
+                                        {{ $project->end_date->translatedFormat('M Y') }}
                                     </span>
                                 </div>
                             </div>
@@ -706,7 +706,7 @@
                                 <i class="fas fa-phone me-2"></i>+237 696 740 438
                             </a>
                             <a href="mailto:contact@actforcommunities.org" class="btn btn-outline-primary btn-sm btn-custom">
-                                <i class="fas fa-envelope me-2"></i>Email direct
+                                <i class="fas fa-envelope me-2"></i>{{ __('Email direct') }}
                             </a>
                         </div>
 
@@ -714,7 +714,7 @@
 
                         <div class="small text-muted">
                             <i class="fas fa-map-marker-alt me-1"></i>
-                            Garoua / Marouaré, Cameroun
+                            {{ __('Garoua / Marouaré, Cameroun') }}
                         </div>
                     </div>
                 </div>
@@ -1006,7 +1006,7 @@ function copyProjectLink() {
         // Afficher une notification de succès
         const toast = document.createElement('div');
         toast.className = 'toast-notification';
-        toast.textContent = 'Lien copié !';
+        toast.textContent = @json(__('Lien copié !'));
         toast.style.cssText = `
             position: fixed;
             top: 20px;

@@ -8,9 +8,9 @@
 
     {{-- Les valeurs de @section('title'/'description', ...) sont déjà échappées par Blade --}}
     @php
-        $siteName = 'Action pour le Développement Communautaire (ADC)';
+        $siteName = app()->getLocale() === 'en' ? 'Action for Community Development (ACD)' : 'Action pour le Développement Communautaire (ADC)';
         $pageTitle = trim($__env->yieldContent('title', 'Accueil'));
-        $pageDescription = trim($__env->yieldContent('description', 'Action pour le Développement Communautaire (ADC) est une organisation de la société civile camerounaise qui promeut la gouvernance et la gestion durable des ressources naturelles, les droits des communautés locales et autochtones et la protection de l\'environnement.'));
+        $pageDescription = trim($__env->yieldContent('description', __('Action pour le Développement Communautaire (ADC) est une organisation de la société civile camerounaise qui promeut la gouvernance et la gestion durable des ressources naturelles, les droits des communautés locales et autochtones et la protection de l\'environnement.')));
         $pageImage = trim($__env->yieldContent('og_image', asset('images/logo-favicon.png')));
     @endphp
     <title>{!! $pageTitle !!} - {{ $siteName }}</title>
@@ -178,7 +178,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container-fluid px-5">
             <a class="navbar-brand fw-bold" href="{{ route('home') }}">
-                <img src="{{ asset('images/act-logo.png') }}" alt="Action pour le Développement Communautaire (ADC)" height="45">
+                <img src="{{ asset('images/act-logo.png') }}" alt="{{ __('Action pour le Développement Communautaire (ADC)') }}" height="45">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -290,7 +290,7 @@
                         </div>
                         <div>
                             <i class="fas fa-map-marker-alt me-2"></i>
-                            {{ $contactInfo['address'] }}
+                            {{ __($contactInfo['address']) }}
                         </div>
                     </div>
                 </div>

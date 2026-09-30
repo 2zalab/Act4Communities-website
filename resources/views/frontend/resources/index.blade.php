@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/resources/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Ressources')
-@section('description', 'Documents, guides et ressources utiles d\'Action pour le Développement Communautaire')
+@section('title', __('Ressources'))
+@section('description', __('Documents, guides et ressources utiles d\'Action pour le Développement Communautaire'))
 
 @section('content')
 

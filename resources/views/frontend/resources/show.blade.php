@@ -159,7 +159,7 @@
 
                             <div class="info-item mb-3">
                                 <strong>{{ __('Nom du fichier:') }}</strong>
-                                <div class="mt-1 text-muted">{{ $resource->original_filename ?: 'Non spécifié' }}</div>
+                                <div class="mt-1 text-muted">{{ $resource->original_filename ?: __('Non spécifié') }}</div>
                             </div>
 
                             <div class="info-item mb-3">
@@ -481,7 +481,7 @@ function shareResource() {
     } else {
         // Fallback pour les navigateurs qui ne supportent pas Web Share API
         copyToClipboard(window.location.href);
-        showToast('Lien copié dans le presse-papiers !');
+        showToast(@json(__('Lien copié dans le presse-papiers !')));
     }
 }
 

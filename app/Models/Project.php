@@ -55,4 +55,15 @@ class Project extends Model
 
         return $badges[$this->status] ?? 'bg-gray-100 text-gray-800';
     }
+
+    public function getStatusLabelAttribute()
+    {
+        $labels = [
+            'active' => 'En cours',
+            'completed' => 'Terminé',
+            'suspended' => 'Suspendu',
+        ];
+
+        return __($labels[$this->status] ?? ucfirst($this->status));
+    }
 }

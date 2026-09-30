@@ -49,7 +49,7 @@ class ContactController extends Controller
         }
 
         return redirect()->back()->with('success',
-            'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.');
+            __('Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.'));
     }
 
     public function volunteer()
@@ -71,7 +71,7 @@ class ContactController extends Controller
 
         $volunteer = Volunteer::create($validatedData);
 
-        return redirect()->back()->with('success', 'Votre candidature a été envoyée avec succès!');
+        return redirect()->back()->with('success', __('Votre candidature a été envoyée avec succès!'));
     }
 
     public function partnership()
@@ -109,8 +109,7 @@ class ContactController extends Controller
             //$this->sendPartnershipNotifications($partnershipRequest);
 
             return back()->with('success',
-                'Votre proposition de partenariat a été envoyée avec succès. ' .
-                'Notre équipe l\'examinera et vous contactera dans les 5 jours ouvrables.'
+                __('Votre proposition de partenariat a été envoyée avec succès. Notre équipe l\'examinera et vous contactera dans les 5 jours ouvrables.')
             );
 
         } catch (\Exception $e) {
@@ -120,8 +119,7 @@ class ContactController extends Controller
             ]);
 
             return back()->with('error',
-                'Une erreur est survenue lors de l\'envoi de votre proposition. ' .
-                'Veuillez réessayer ou nous contacter directement.'
+                __('Une erreur est survenue lors de l\'envoi de votre proposition. Veuillez réessayer ou nous contacter directement.')
             );
         }
     }

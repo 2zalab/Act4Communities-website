@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/contact.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Nous contacter')
-@section('description', 'Contactez Act for Communities pour vos questions, propositions de partenariat ou pour devenir bénévole')
+@section('title', __('Nous contacter'))
+@section('description', __('Contactez Act for Communities pour vos questions, propositions de partenariat ou pour devenir bénévole'))
 
 @section('content')
 <!-- Header -->
@@ -73,7 +73,7 @@
                     <div class="card-body">
                         <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
                         <h5 class="card-title">{{ __('Adresse') }}</h5>
-                        <p class="card-text">{{ $contactInfo['address'] }}</p>
+                        <p class="card-text">{{ __($contactInfo['address']) }}</p>
                     </div>
                 </div>
             </div>

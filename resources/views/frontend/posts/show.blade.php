@@ -83,7 +83,7 @@
                         <i class="fas fa-user me-1"></i>{{ $post->user->name }}
                     </div>
                     <div class="me-4">
-                        <i class="fas fa-calendar me-1"></i>{{ $post->published_at->format('d F Y') }}
+                        <i class="fas fa-calendar me-1"></i>{{ $post->published_at->translatedFormat('d F Y') }}
                     </div>
                     <div>
                         <i class="fas fa-eye me-1"></i>{{ $post->views_count }} {{ __('vues') }}
@@ -153,7 +153,7 @@
                                     </div>
                                     <div>
                                         <h6 class="mb-0">{{ $post->user->name }}</h6>
-                                        <small class="text-muted">{{ __('Publié le') }} {{ $post->published_at->format('d F Y') }}</small>
+                                        <small class="text-muted">{{ __('Publié le') }} {{ $post->published_at->translatedFormat('d F Y') }}</small>
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +237,7 @@
                         </div>
                         <div class="mb-3">
                             <strong>{{ __('Publié le :') }}</strong><br>
-                            {{ $post->published_at->format('d F Y à H:i') }}
+                            {{ $post->published_at->translatedFormat(app()->getLocale() === 'en' ? 'F j, Y \a\t H:i' : 'd F Y à H:i') }}
                         </div>
                         <div>
                             <strong>{{ __('Vues :') }}</strong><br>

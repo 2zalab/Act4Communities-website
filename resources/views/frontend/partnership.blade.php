@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/partnership.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Partenariat')
-@section('description', 'Découvrez les opportunités de partenariat avec Act for Communities pour amplifier notre impact')
+@section('title', __('Partenariat'))
+@section('description', __('Découvrez les opportunités de partenariat avec Act for Communities pour amplifier notre impact'))
 
 @section('content')
 <!-- Header -->
@@ -38,7 +38,7 @@
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <i class="fas fa-check-circle me-2"></i>
-            <strong>Succès !</strong> {{ session('success') }}
+            <strong>{{ __('Succès !') }}</strong> {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
@@ -47,7 +47,7 @@
         @if(session('error'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <i class="fas fa-exclamation-circle me-2"></i>
-            <strong>Erreur !</strong> {{ session('error') }}
+            <strong>{{ __('Erreur !') }}</strong> {{ session('error') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
@@ -56,7 +56,7 @@
         @if(session('warning'))
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <i class="fas fa-exclamation-triangle me-2"></i>
-            <strong>Attention !</strong> {{ session('warning') }}
+            <strong>{{ __('Attention !') }}</strong> {{ session('warning') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
@@ -65,7 +65,7 @@
         @if(session('info'))
         <div class="alert alert-info alert-dismissible fade show" role="alert">
             <i class="fas fa-info-circle me-2"></i>
-            <strong>Information :</strong> {{ session('info') }}
+            <strong>{{ __('Information :') }}</strong> {{ session('info') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
@@ -74,7 +74,7 @@
         @if($errors->any())
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <i class="fas fa-exclamation-circle me-2"></i>
-            <strong>Erreurs de validation :</strong>
+            <strong>{{ __('Erreurs de validation :') }}</strong>
             <ul class="mb-0 mt-2">
                 @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -278,7 +278,7 @@
                         <div class="mb-2">
                             <i class="fas fa-flag fa-2x text-primary"></i>
                         </div>
-                        <h6 class="fw-bold">Union Européenne</h6>
+                        <h6 class="fw-bold">{{ __('Union Européenne') }}</h6>
                         <small class="text-muted">{{ __('Bailleur de fonds') }}</small>
                     </div>
                 </div>

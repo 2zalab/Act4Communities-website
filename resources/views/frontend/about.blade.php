@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/about.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'À propos')
-@section('description', 'Découvrez Action pour le Développement Communautaire, une ONG camerounaise œuvrant pour les droits des communautés locales')
+@section('title', __('À propos'))
+@section('description', __('Découvrez Action pour le Développement Communautaire, une ONG camerounaise œuvrant pour les droits des communautés locales'))
 
 @section('content')
 <!-- Hero Section with Background -->
@@ -75,14 +75,14 @@
                     </div>
                     <div class="key-info p-4 bg-white rounded-3 shadow-sm border-start border-4 border-primary mt-4">
                         <h6 class="fw-bold text-primary mb-2">{{ __('Implantation géographique') }}</h6>
-                        <p class="mb-2"><strong>{{ __('Siège :') }}</strong> Guider, Nord Cameroun</p>
-                        <p class="mb-0"><strong>{{ __('Bureau opérationnel :') }}</strong> Garoua, Nord Cameroun</p>
+                        <p class="mb-2"><strong>{{ __('Siège :') }}</strong> {{ __('Guider, Nord Cameroun') }}</p>
+                        <p class="mb-0"><strong>{{ __('Bureau opérationnel :') }}</strong> {{ __('Garoua, Nord Cameroun') }}</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="image-gallery">
-                    <img src="{{ asset('images/about-hero.jpg') }}" alt="Histoire ADC" class="img-fluid rounded-4 shadow-lg main-image">
+                    <img src="{{ asset('images/about-hero.jpg') }}" alt="{{ __('Histoire ADC') }}" class="img-fluid rounded-4 shadow-lg main-image">
                     <div class="floating-badge">
                         <i class="fas fa-calendar-alt"></i>
                         <span>{{ __('Depuis 2019') }}</span>

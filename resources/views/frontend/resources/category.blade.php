@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/resources/category.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', $category->name . ' - Ressources')
-@section('description', $category->description ?: 'Découvrez les ressources de la catégorie ' . $category->name)
+@section('title', $category->name . ' - ' . __('Ressources'))
+@section('description', $category->description ?: __('Découvrez les ressources de la catégorie') . ' ' . $category->name)
 
 @section('content')
 
