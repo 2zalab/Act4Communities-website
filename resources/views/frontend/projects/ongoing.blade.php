@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
-@section('title', 'Projets en cours')
-@section('description', 'Découvrez nos projets actuellement en cours de réalisation')
+@section('title', __('Projets en cours'))
+@section('description', __('Découvrez nos projets actuellement en cours de réalisation'))
 @section('content')
 
 <!-- Hero Section -->
@@ -79,9 +79,9 @@
                             @if($project->start_date)
                             <div class="text-muted small mb-3">
                                 <i class="fas fa-calendar me-1"></i>
-                                {{ __('Démarré en') }} {{ $project->start_date->format('M Y') }}
+                                {{ __('Démarré en') }} {{ $project->start_date->translatedFormat('M Y') }}
                                 @if($project->end_date)
-                                - {{ __('Fin prévue') }} {{ $project->end_date->format('M Y') }}
+                                - {{ __('Fin prévue') }} {{ $project->end_date->translatedFormat('M Y') }}
                                 @endif
                             </div>
                             @endif

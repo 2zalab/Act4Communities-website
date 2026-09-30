@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/volunteer.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Devenir bénévole')
-@section('description', 'Rejoignez l\'équipe de bénévoles d\'Act for Communities et contribuez au développement des communautés locales')
+@section('title', __('Devenir bénévole'))
+@section('description', __('Rejoignez l\'équipe de bénévoles d\'Act for Communities et contribuez au développement des communautés locales'))
 
 @section('content')
 <!-- Header -->
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <img src="{{ asset('images/volunteers.jpg') }}" alt="Bénévoles" class="img-fluid">
+                <img src="{{ asset('images/volunteers.jpg') }}" alt="{{ __('Bénévoles') }}" class="img-fluid">
             </div>
         </div>
     </div>

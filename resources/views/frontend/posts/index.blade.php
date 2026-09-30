@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/posts/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Actualités')
-@section('description', 'Découvrez les dernières actualités et articles d\'Act for Communities sur le développement communautaire')
+@section('title', __('Actualités'))
+@section('description', __('Découvrez les dernières actualités et articles d\'Act for Communities sur le développement communautaire'))
 
 @section('content')
 <!-- Hero Section -->

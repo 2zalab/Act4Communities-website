@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/home.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Accueil')
-@section('description', 'Action pour le Développement Communautaire (ADC) est une organisation de la société civile camerounaise qui promeut la gouvernance et la gestion durable des ressources naturelles, les droits des communautés locales et autochtones et la protection de l\'environnement.')
+@section('title', __('Accueil'))
+@section('description', __('Action pour le Développement Communautaire (ADC) est une organisation de la société civile camerounaise qui promeut la gouvernance et la gestion durable des ressources naturelles, les droits des communautés locales et autochtones et la protection de l\'environnement.'))
 
 @section('content')
 
@@ -94,11 +94,11 @@
         <!-- Carousel Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Précédent</span>
+            <span class="visually-hidden">{{ __('Précédent') }}</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Suivant</span>
+            <span class="visually-hidden">{{ __('Suivant') }}</span>
         </button>
     </div>
 
@@ -235,7 +235,7 @@
                     <!-- Image principale -->
                     <div class="image-wrapper position-relative">
                         <img src="{{ asset('images/logo-favicon.png') }}"
-                             alt="Équipe Action pour le Développement Communautaire"
+                             alt="{{ __('Équipe Action pour le Développement Communautaire') }}"
                              class="presentation-photo img-fluid rounded-4 shadow-lg">
 
                         <!-- Badge flottant avec logo ADC -->
@@ -246,23 +246,23 @@
 
                     <!-- Informations sur l'organisation -->
                     <div class="organization-info text-center mt-4">
-                        <h4 class="fw-bold text-primary mb-1">Action pour le Développement Communautaire</h4>
+                        <h4 class="fw-bold text-primary mb-1">{{ __('Action pour le Développement Communautaire') }}</h4>
                         <p class="text-muted fs-5 mb-0">
-                            <i class="fas fa-users me-2 text-success"></i>Organisation de la Société Civile
+                            <i class="fas fa-users me-2 text-success"></i>{{ __('Organisation de la Société Civile') }}
                         </p>
                         <!-- Éléments visuels représentatifs -->
                         <div class="org-highlights mt-3">
                             <span class="highlight-badge me-2">
                                 <i class="fas fa-tree text-success"></i>
-                                <small>Ressources Naturelles</small>
+                                <small>{{ __('Ressources Naturelles') }}</small>
                             </span>
                             <span class="highlight-badge me-2">
                                 <i class="fas fa-balance-scale text-primary"></i>
-                                <small>Droits Communautaires</small>
+                                <small>{{ __('Droits Communautaires') }}</small>
                             </span>
                             <span class="highlight-badge">
                                 <i class="fas fa-handshake text-warning"></i>
-                                <small>Gouvernance</small>
+                                <small>{{ __('Gouvernance') }}</small>
                             </span>
                         </div>
                     </div>
@@ -575,7 +575,7 @@
                     <div class="card-body d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start mb-2">
                             <span class="badge bg-primary">{{ \Illuminate\Support\Str::limit($project->category->name, 30) }}</span>
-                            <span class="badge {{ $project->status_badge }}">{{ ucfirst($project->status) }}</span>
+                            <span class="badge {{ $project->status_badge }}">{{ $project->status_label }}</span>
                         </div>
                         <h5 class="card-title">{{ $project->title }}</h5>
                         <p class="card-text flex-grow-1">{{ $project->excerpt }}</p>

@@ -1,8 +1,8 @@
 {{-- resources/views/frontend/team.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Notre équipe')
-@section('description', 'Découvrez l\'équipe d\'Act for Communities qui œuvre pour le développement communautaire au Cameroun')
+@section('title', __('Notre équipe'))
+@section('description', __('Découvrez l\'équipe d\'Act for Communities qui œuvre pour le développement communautaire au Cameroun'))
 
 @section('content')
 <!-- Hero Section -->

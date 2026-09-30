@@ -51,35 +51,35 @@ class PartnershipRequestFormRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'org_name.required' => 'Le nom de l\'organisation est obligatoire.',
-            'org_name.max' => 'Le nom de l\'organisation ne peut pas dépasser 255 caractères.',
+            'org_name.required' => __('Le nom de l\'organisation est obligatoire.'),
+            'org_name.max' => __('Le nom de l\'organisation ne peut pas dépasser 255 caractères.'),
 
-            'org_type.required' => 'Le type d\'organisation est obligatoire.',
-            'org_type.in' => 'Le type d\'organisation sélectionné n\'est pas valide.',
+            'org_type.required' => __('Le type d\'organisation est obligatoire.'),
+            'org_type.in' => __('Le type d\'organisation sélectionné n\'est pas valide.'),
 
-            'website.url' => 'Le site web doit être une URL valide.',
-            'website.max' => 'Le site web ne peut pas dépasser 255 caractères.',
+            'website.url' => __('Le site web doit être une URL valide.'),
+            'website.max' => __('Le site web ne peut pas dépasser 255 caractères.'),
 
-            'name.required' => 'Le nom de la personne de contact est obligatoire.',
-            'name.max' => 'Le nom ne peut pas dépasser 255 caractères.',
+            'name.required' => __('Le nom de la personne de contact est obligatoire.'),
+            'name.max' => __('Le nom ne peut pas dépasser 255 caractères.'),
 
-            'position.max' => 'La fonction ne peut pas dépasser 255 caractères.',
+            'position.max' => __('La fonction ne peut pas dépasser 255 caractères.'),
 
-            'email.required' => 'L\'adresse email est obligatoire.',
-            'email.email' => 'L\'adresse email doit être valide.',
-            'email.max' => 'L\'adresse email ne peut pas dépasser 255 caractères.',
+            'email.required' => __('L\'adresse email est obligatoire.'),
+            'email.email' => __('L\'adresse email doit être valide.'),
+            'email.max' => __('L\'adresse email ne peut pas dépasser 255 caractères.'),
 
-            'phone.max' => 'Le numéro de téléphone ne peut pas dépasser 20 caractères.',
+            'phone.max' => __('Le numéro de téléphone ne peut pas dépasser 20 caractères.'),
 
-            'partnership_type.required' => 'Le type de partenariat est obligatoire.',
-            'partnership_type.in' => 'Le type de partenariat sélectionné n\'est pas valide.',
+            'partnership_type.required' => __('Le type de partenariat est obligatoire.'),
+            'partnership_type.in' => __('Le type de partenariat sélectionné n\'est pas valide.'),
 
-            'domains.array' => 'Les domaines d\'intervention doivent être un tableau.',
-            'domains.*.exists' => 'L\'un des domaines sélectionnés n\'existe pas.',
+            'domains.array' => __('Les domaines d\'intervention doivent être un tableau.'),
+            'domains.*.exists' => __('L\'un des domaines sélectionnés n\'existe pas.'),
 
-            'message.required' => 'La description de votre proposition est obligatoire.',
-            'message.min' => 'La description doit contenir au moins 10 caractères.',
-            'message.max' => 'La description ne peut pas dépasser 5000 caractères.',
+            'message.required' => __('La description de votre proposition est obligatoire.'),
+            'message.min' => __('La description doit contenir au moins 10 caractères.'),
+            'message.max' => __('La description ne peut pas dépasser 5000 caractères.'),
         ];
     }
 
@@ -89,16 +89,16 @@ class PartnershipRequestFormRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'org_name' => 'nom de l\'organisation',
-            'org_type' => 'type d\'organisation',
-            'website' => 'site web',
-            'name' => 'personne de contact',
-            'position' => 'fonction',
-            'email' => 'email',
-            'phone' => 'téléphone',
-            'partnership_type' => 'type de partenariat',
-            'domains' => 'domaines d\'intervention',
-            'message' => 'description de la proposition',
+            'org_name' => __('nom de l\'organisation'),
+            'org_type' => __('type d\'organisation'),
+            'website' => __('site web'),
+            'name' => __('personne de contact'),
+            'position' => __('fonction'),
+            'email' => __('email'),
+            'phone' => __('téléphone'),
+            'partnership_type' => __('type de partenariat'),
+            'domains' => __('domaines d\'intervention'),
+            'message' => __('description de la proposition'),
         ];
     }
 
